@@ -8,6 +8,5 @@
 import Foundation
 
 protocol TeamRepository{
-    
-    
+    func getTeamInfo(team: Team)-> TeamDetails
 }
