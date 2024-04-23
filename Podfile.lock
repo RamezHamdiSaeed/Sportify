@@ -1,0 +1,22 @@
+PODS:
+  - SDWebImage (5.19.1):
+    - SDWebImage/Core (= 5.19.1)
+  - SDWebImage/Core (5.19.1)
+  - SwiftyOnboard (1.4.0)
+
+DEPENDENCIES:
+  - SDWebImage
+  - SwiftyOnboard
+
+SPEC REPOS:
+  trunk:
+    - SDWebImage
+    - SwiftyOnboard
+
+SPEC CHECKSUMS:
+  SDWebImage: 40b0b4053e36c660a764958bff99eed16610acbb
+  SwiftyOnboard: 76a648dc1dcbc844343b6b95fe5883cb64a62f4a
+
+PODFILE CHECKSUM: 054a602f64ab97ec2aebf329fdfb9eb4872f9711
+
+COCOAPODS: 1.15.2

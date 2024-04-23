@@ -23,6 +23,11 @@
 		04BE4E0E2BD6AB62001853A8 /* TeamDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE4E0D2BD6AB62001853A8 /* TeamDetails.swift */; };
 		04BE4E102BD6AC99001853A8 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE4E0F2BD6AC99001853A8 /* Team.swift */; };
 		04BE4E122BD6AD44001853A8 /* LeagueRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE4E112BD6AD44001853A8 /* LeagueRepository.swift */; };
+		1E18AD152BD720CB00684B71 /* OnBoardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E18AD142BD720CB00684B71 /* OnBoardingPage.swift */; };
+		1E740BEB2BD889890096E3C1 /* OlympicAthlete.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1E740BEA2BD889890096E3C1 /* OlympicAthlete.mp4 */; };
+		1E80290A2BD85ABA00BA9EB4 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8029092BD85ABA00BA9EB4 /* WelcomeViewController.swift */; };
+		1E80290D2BD85B7900BA9EB4 /* OnBoardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E80290C2BD85B7900BA9EB4 /* OnBoardingManager.swift */; };
+		C23B284731DDDE3800792669 /* Pods_Sportify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A384CC8DDDA410E7A9C2C3A1 /* Pods_Sportify.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +49,13 @@
 		04BE4E0D2BD6AB62001853A8 /* TeamDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetails.swift; sourceTree = "<group>"; };
 		04BE4E0F2BD6AC99001853A8 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		04BE4E112BD6AD44001853A8 /* LeagueRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueRepository.swift; sourceTree = "<group>"; };
+		1953E79BA67B0D0F884D585C /* Pods-Sportify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sportify.release.xcconfig"; path = "Target Support Files/Pods-Sportify/Pods-Sportify.release.xcconfig"; sourceTree = "<group>"; };
+		1E18AD142BD720CB00684B71 /* OnBoardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPage.swift; sourceTree = "<group>"; };
+		1E740BEA2BD889890096E3C1 /* OlympicAthlete.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = OlympicAthlete.mp4; path = ../../../../../Downloads/OlympicAthlete.mp4; sourceTree = "<group>"; };
+		1E8029092BD85ABA00BA9EB4 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		1E80290C2BD85B7900BA9EB4 /* OnBoardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingManager.swift; sourceTree = "<group>"; };
+		A384CC8DDDA410E7A9C2C3A1 /* Pods_Sportify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sportify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9E4DF8341EE0F8CDE5272F0 /* Pods-Sportify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sportify.debug.xcconfig"; path = "Target Support Files/Pods-Sportify/Pods-Sportify.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C23B284731DDDE3800792669 /* Pods_Sportify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +75,8 @@
 			children = (
 				04BE4CA92BCED5AB001853A8 /* Sportify */,
 				04BE4CA82BCED5AB001853A8 /* Products */,
+				54D0CC22B22C87A8B440D2DB /* Pods */,
+				1A8A88011651475132E44416 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +91,8 @@
 		04BE4CA92BCED5AB001853A8 /* Sportify */ = {
 			isa = PBXGroup;
 			children = (
+				1E740BE92BD889690096E3C1 /* Assets */,
+				1E80290B2BD85B3900BA9EB4 /* Utility */,
 				04BE4CC12BCED5E9001853A8 /* NetworkLayer */,
 				04BE4CAA2BCED5AB001853A8 /* AppDelegate.swift */,
 				04BE4CAC2BCED5AB001853A8 /* SceneDelegate.swift */,
@@ -94,6 +111,8 @@
 				04BE4E0D2BD6AB62001853A8 /* TeamDetails.swift */,
 				04BE4E0F2BD6AC99001853A8 /* Team.swift */,
 				04BE4E112BD6AD44001853A8 /* LeagueRepository.swift */,
+				1E18AD142BD720CB00684B71 /* OnBoardingPage.swift */,
+				1E8029092BD85ABA00BA9EB4 /* WelcomeViewController.swift */,
 			);
 			path = Sportify;
 			sourceTree = "<group>";
@@ -105,6 +124,39 @@
 			path = NetworkLayer;
 			sourceTree = "<group>";
 		};
+		1A8A88011651475132E44416 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A384CC8DDDA410E7A9C2C3A1 /* Pods_Sportify.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1E740BE92BD889690096E3C1 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				1E740BEA2BD889890096E3C1 /* OlympicAthlete.mp4 */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		1E80290B2BD85B3900BA9EB4 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				1E80290C2BD85B7900BA9EB4 /* OnBoardingManager.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		54D0CC22B22C87A8B440D2DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C9E4DF8341EE0F8CDE5272F0 /* Pods-Sportify.debug.xcconfig */,
+				1953E79BA67B0D0F884D585C /* Pods-Sportify.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,9 +164,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04BE4CBE2BCED5AE001853A8 /* Build configuration list for PBXNativeTarget "Sportify" */;
 			buildPhases = (
+				D0A6E06566CFA679F84352BD /* [CP] Check Pods Manifest.lock */,
 				04BE4CA32BCED5AB001853A8 /* Sources */,
 				04BE4CA42BCED5AB001853A8 /* Frameworks */,
 				04BE4CA52BCED5AB001853A8 /* Resources */,
+				506A7CE203A28A8104B3BEC4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,18 +221,63 @@
 				04BE4CBA2BCED5AE001853A8 /* Base in Resources */,
 				04BE4CB22BCED5AB001853A8 /* Base in Resources */,
 				04BE4E0A2BD6A8DC001853A8 /* Details.storyboard in Resources */,
+				1E740BEB2BD889890096E3C1 /* OlympicAthlete.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		506A7CE203A28A8104B3BEC4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sportify/Pods-Sportify-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sportify/Pods-Sportify-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sportify/Pods-Sportify-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0A6E06566CFA679F84352BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sportify-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04BE4CA32BCED5AB001853A8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E18AD152BD720CB00684B71 /* OnBoardingPage.swift in Sources */,
 				04BE4E122BD6AD44001853A8 /* LeagueRepository.swift in Sources */,
 				04BE4E062BD6A1EE001853A8 /* TeamRepository.swift in Sources */,
+				1E80290D2BD85B7900BA9EB4 /* OnBoardingManager.swift in Sources */,
 				04BE4E022BD6A1AE001853A8 /* LocalDataSource.swift in Sources */,
 				04BE4E082BD6A233001853A8 /* League.swift in Sources */,
 				04BE4CAF2BCED5AB001853A8 /* ViewController.swift in Sources */,
@@ -189,6 +288,7 @@
 				04BE4E102BD6AC99001853A8 /* Team.swift in Sources */,
 				04BE4E0E2BD6AB62001853A8 /* TeamDetails.swift in Sources */,
 				04BE4CAD2BCED5AB001853A8 /* SceneDelegate.swift in Sources */,
+				1E80290A2BD85ABA00BA9EB4 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +351,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -314,7 +414,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -335,6 +435,7 @@
 		};
 		04BE4CBF2BCED5AE001853A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9E4DF8341EE0F8CDE5272F0 /* Pods-Sportify.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -348,6 +449,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -363,6 +465,7 @@
 		};
 		04BE4CC02BCED5AE001853A8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1953E79BA67B0D0F884D585C /* Pods-Sportify.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -376,6 +479,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
