@@ -7,5 +7,6 @@ target 'Sportify' do
 
   # Pods for Sportify
 pod 'SDWebImage'
+pod 'Alamofire'
 use_frameworks!
 end
