@@ -58,15 +58,24 @@
 		04BE4CA92BCED5AB001853A8 /* Sportify */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< Updated upstream
 				04BE4CC12BCED5E9001853A8 /* NetworkLayer */,
+=======
+				1E64F70B2BD99A9300666A3B /* Controller */,
+				1E64F70A2BD99A8C00666A3B /* View */,
+				1E64F7092BD99A7600666A3B /* Model */,
+				1E740BE92BD889690096E3C1 /* Assets */,
+				1E80290B2BD85B3900BA9EB4 /* Utility */,
+>>>>>>> Stashed changes
 				04BE4CAA2BCED5AB001853A8 /* AppDelegate.swift */,
 				04BE4CAC2BCED5AB001853A8 /* SceneDelegate.swift */,
-				04BE4CAE2BCED5AB001853A8 /* ViewController.swift */,
-				04BE4CB02BCED5AB001853A8 /* Main.storyboard */,
 				04BE4CB62BCED5AE001853A8 /* Assets.xcassets */,
-				04BE4CB82BCED5AE001853A8 /* LaunchScreen.storyboard */,
 				04BE4CBB2BCED5AE001853A8 /* Info.plist */,
+<<<<<<< Updated upstream
 				04BE4CB32BCED5AB001853A8 /* Sportify.xcdatamodeld */,
+=======
+				04BE4CB82BCED5AE001853A8 /* LaunchScreen.storyboard */,
+>>>>>>> Stashed changes
 			);
 			path = Sportify;
 			sourceTree = "<group>";
@@ -74,10 +83,90 @@
 		04BE4CC12BCED5E9001853A8 /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				04BE4E032BD6A1CB001853A8 /* RemoteDataSource.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
 		};
+<<<<<<< Updated upstream
+=======
+		1A8A88011651475132E44416 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A384CC8DDDA410E7A9C2C3A1 /* Pods_Sportify.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1E64F7082BD99A4400666A3B /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				04BE4CB32BCED5AB001853A8 /* Sportify.xcdatamodeld */,
+				04BE4E012BD6A1AE001853A8 /* LocalDataSource.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		1E64F7092BD99A7600666A3B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1E64F7082BD99A4400666A3B /* DB */,
+				04BE4CC12BCED5E9001853A8 /* NetworkLayer */,
+				04BE4E052BD6A1EE001853A8 /* TeamRepository.swift */,
+				04BE4E072BD6A233001853A8 /* League.swift */,
+				04BE4E0B2BD6A92A001853A8 /* LeagueDetails.swift */,
+				04BE4E0D2BD6AB62001853A8 /* TeamDetails.swift */,
+				04BE4E0F2BD6AC99001853A8 /* Team.swift */,
+				04BE4E112BD6AD44001853A8 /* LeagueRepository.swift */,
+				1E18AD142BD720CB00684B71 /* OnBoardingPage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1E64F70A2BD99A8C00666A3B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04BE4CB02BCED5AB001853A8 /* Main.storyboard */,
+				04BE4E092BD6A8DC001853A8 /* Details.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1E64F70B2BD99A9300666A3B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1E8029092BD85ABA00BA9EB4 /* WelcomeViewController.swift */,
+				04BE4CAE2BCED5AB001853A8 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1E740BE92BD889690096E3C1 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				1E740BEA2BD889890096E3C1 /* OlympicAthlete.mp4 */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		1E80290B2BD85B3900BA9EB4 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				1E80290C2BD85B7900BA9EB4 /* OnBoardingManager.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		54D0CC22B22C87A8B440D2DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C9E4DF8341EE0F8CDE5272F0 /* Pods-Sportify.debug.xcconfig */,
+				1953E79BA67B0D0F884D585C /* Pods-Sportify.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+>>>>>>> Stashed changes
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
