@@ -65,8 +65,8 @@ class WelcomeViewController: UIViewController {
     @objc func didTapButton(_ button:UIButton){
         guard button.tag < 3 else{
             
-//            OnBoardingManager.shared.setIsNotNewUser()
-//            dismiss(animated: true,completion: nil)
+            OnBoardingManager.shared.setIsNotNewUser()
+            dismiss(animated: true,completion: nil)
             return
         }
         scrollView.setContentOffset(CGPoint(x: viewHolder.frame.size.width * CGFloat(button.tag), y: 0), animated: true)
