@@ -8,6 +8,8 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    let sports = [SportCategory(name: "", image: <#T##String#>)]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,4 +26,18 @@ class HomeViewController: UIViewController {
     }
 
 
+}
+
+
+extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+       return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
+    }
+    
+    
+    
 }
