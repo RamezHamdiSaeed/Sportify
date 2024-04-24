@@ -10,8 +10,7 @@
 #endif
 #endif
 
-#import "SwiftyOnboard.h"
 
-FOUNDATION_EXPORT double SwiftyOnboardVersionNumber;
-FOUNDATION_EXPORT const unsigned char SwiftyOnboardVersionString[];
+FOUNDATION_EXPORT double AlamofireVersionNumber;
+FOUNDATION_EXPORT const unsigned char AlamofireVersionString[];
 
