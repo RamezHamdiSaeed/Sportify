@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    let sports = [SportCategory(name: "", image: <#T##String#>)]
+    let sports = [SportCategory(name: "", image: "")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
