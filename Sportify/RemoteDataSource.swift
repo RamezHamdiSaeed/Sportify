@@ -9,7 +9,7 @@ import Foundation
 
 protocol RemoteDataSource{
     
-    func getLeagues(sport: Sport)->[League]
+    func getLeagues(sport: Sport)->Leagues
     func getLeagueInfo(league: League)-> LeagueDetails
     func getTeamInfo(team: Team)-> TeamDetails
     
