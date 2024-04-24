@@ -40,6 +40,7 @@ class WelcomeViewController: UIViewController {
             page.addSubview(label)
 
             
+            
             image.contentMode = .scaleAspectFit
             image.image = UIImage(named: "Welcome_\(x+1)")
             page.addSubview(image)

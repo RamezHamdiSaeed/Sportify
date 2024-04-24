@@ -24,6 +24,7 @@
 		04BE4E102BD6AC99001853A8 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE4E0F2BD6AC99001853A8 /* Team.swift */; };
 		04BE4E122BD6AD44001853A8 /* LeagueRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE4E112BD6AD44001853A8 /* LeagueRepository.swift */; };
 		1E18AD152BD720CB00684B71 /* OnBoardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E18AD142BD720CB00684B71 /* OnBoardingPage.swift */; };
+		1E740BEB2BD889890096E3C1 /* OlympicAthlete.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1E740BEA2BD889890096E3C1 /* OlympicAthlete.mp4 */; };
 		1E80290A2BD85ABA00BA9EB4 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8029092BD85ABA00BA9EB4 /* WelcomeViewController.swift */; };
 		1E80290D2BD85B7900BA9EB4 /* OnBoardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E80290C2BD85B7900BA9EB4 /* OnBoardingManager.swift */; };
 		C23B284731DDDE3800792669 /* Pods_Sportify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A384CC8DDDA410E7A9C2C3A1 /* Pods_Sportify.framework */; };
@@ -50,6 +51,7 @@
 		04BE4E112BD6AD44001853A8 /* LeagueRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueRepository.swift; sourceTree = "<group>"; };
 		1953E79BA67B0D0F884D585C /* Pods-Sportify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sportify.release.xcconfig"; path = "Target Support Files/Pods-Sportify/Pods-Sportify.release.xcconfig"; sourceTree = "<group>"; };
 		1E18AD142BD720CB00684B71 /* OnBoardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPage.swift; sourceTree = "<group>"; };
+		1E740BEA2BD889890096E3C1 /* OlympicAthlete.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = OlympicAthlete.mp4; path = ../../../../../Downloads/OlympicAthlete.mp4; sourceTree = "<group>"; };
 		1E8029092BD85ABA00BA9EB4 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		1E80290C2BD85B7900BA9EB4 /* OnBoardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingManager.swift; sourceTree = "<group>"; };
 		A384CC8DDDA410E7A9C2C3A1 /* Pods_Sportify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sportify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +91,7 @@
 		04BE4CA92BCED5AB001853A8 /* Sportify */ = {
 			isa = PBXGroup;
 			children = (
+				1E740BE92BD889690096E3C1 /* Assets */,
 				1E80290B2BD85B3900BA9EB4 /* Utility */,
 				04BE4CC12BCED5E9001853A8 /* NetworkLayer */,
 				04BE4CAA2BCED5AB001853A8 /* AppDelegate.swift */,
@@ -127,6 +130,14 @@
 				A384CC8DDDA410E7A9C2C3A1 /* Pods_Sportify.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1E740BE92BD889690096E3C1 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				1E740BEA2BD889890096E3C1 /* OlympicAthlete.mp4 */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		1E80290B2BD85B3900BA9EB4 /* Utility */ = {
@@ -210,6 +221,7 @@
 				04BE4CBA2BCED5AE001853A8 /* Base in Resources */,
 				04BE4CB22BCED5AB001853A8 /* Base in Resources */,
 				04BE4E0A2BD6A8DC001853A8 /* Details.storyboard in Resources */,
+				1E740BEB2BD889890096E3C1 /* OlympicAthlete.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
