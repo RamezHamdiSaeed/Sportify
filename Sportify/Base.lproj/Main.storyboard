@@ -16,12 +16,41 @@
                     <view key="view" contentMode="scaleToFill" id="rXS-e0-fY2">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5gg-YA-m8L">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteSportLeague" id="fMb-of-t6R" customClass="LeagueTableViewCell" customModule="Sportify" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fMb-of-t6R" id="2g3-rk-hbU">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="woT-jC-gPp" id="kKT-JF-1h6"/>
+                                    <outlet property="delegate" destination="woT-jC-gPp" id="YRh-nQ-HHM"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="E64-dR-WD7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5gg-YA-m8L" firstAttribute="leading" secondItem="E64-dR-WD7" secondAttribute="leading" id="2YQ-xh-55d"/>
+                            <constraint firstItem="E64-dR-WD7" firstAttribute="trailing" secondItem="5gg-YA-m8L" secondAttribute="trailing" id="Swj-gt-pN3"/>
+                            <constraint firstItem="E64-dR-WD7" firstAttribute="bottom" secondItem="5gg-YA-m8L" secondAttribute="bottom" id="db9-Ov-pHT"/>
+                            <constraint firstItem="5gg-YA-m8L" firstAttribute="top" secondItem="E64-dR-WD7" secondAttribute="top" id="qma-ST-TqI"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favorite" image="heart.fill" catalog="system" selectedImage="heart.fill" id="L12-W5-fdh">
                         <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="favoriteTableView" destination="5gg-YA-m8L" id="JDC-rN-hoz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uJv-rP-tH6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

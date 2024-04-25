@@ -7,11 +7,14 @@
 
 import Foundation
 import UIKit
+import CoreData
+
 
 class LocalDataSourceImpl : LocalDataSource{
     
-    private let shared = LocalDataSourceImpl()
+    public static let shared = LocalDataSourceImpl()
     private var leagues = [LeaguesDB]()
+
     
     let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
@@ -28,9 +31,9 @@ class LocalDataSourceImpl : LocalDataSource{
     
     func insertLeagueToFav(league: League) {
         let newLeague = LeaguesDB(context: self.context!)
-        newLeague.leagueKey = Int32(league.leagueKey!)
+        newLeague.leagueKey = Int32(league.leagueKey  ?? 0)
         newLeague.leagueName = league.leagueName
-        newLeague.countryKey = Int32(league.countryKey!)
+        newLeague.countryKey = Int32(league.countryKey ?? 0)
         newLeague.countryName = league.countryName
         newLeague.leagueLogo = league.leagueLogo
         newLeague.countryLogo = league.countryLogo

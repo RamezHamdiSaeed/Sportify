@@ -51,6 +51,8 @@ class HomeLeaguesTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //navigate to the first view controller in the Details Story Board
+        // but now just for testing the insertion and navigate to the favorite to test the data retrieving
+        LeagueRepositoryImpl.shared.insertLeagueToFav(league: self.leaguesNetwork[indexPath.item])
     }
 
 
