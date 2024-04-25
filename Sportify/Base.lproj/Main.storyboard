@@ -51,7 +51,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PLj-Zu-Dio">
-                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <rect key="frame" x="27" y="131" width="339" height="591"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tiX-lI-rUD">
                                     <size key="itemSize" width="128" height="128"/>
@@ -60,11 +60,11 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hHX-tx-WOj">
-                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="sportCell" id="hHX-tx-WOj" customClass="sportCollectionViewCell" customModule="Sportify" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="twP-T1-wk4">
-                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
@@ -78,19 +78,26 @@
                         <viewLayoutGuide key="safeArea" id="Ihv-l2-PaG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Ihv-l2-PaG" firstAttribute="bottom" secondItem="PLj-Zu-Dio" secondAttribute="bottom" id="PaL-6r-zSG"/>
-                            <constraint firstItem="Ihv-l2-PaG" firstAttribute="trailing" secondItem="PLj-Zu-Dio" secondAttribute="trailing" id="Pf8-yi-UBG"/>
-                            <constraint firstItem="PLj-Zu-Dio" firstAttribute="leading" secondItem="Ihv-l2-PaG" secondAttribute="leading" id="fDC-AC-Cmr"/>
-                            <constraint firstItem="PLj-Zu-Dio" firstAttribute="top" secondItem="Ihv-l2-PaG" secondAttribute="top" id="owZ-Iz-Mes"/>
+                            <constraint firstItem="PLj-Zu-Dio" firstAttribute="leading" secondItem="Ihv-l2-PaG" secondAttribute="leading" constant="27" id="5L1-ED-eZa"/>
+                            <constraint firstItem="Ihv-l2-PaG" firstAttribute="bottom" secondItem="PLj-Zu-Dio" secondAttribute="bottom" constant="47" id="HMF-6b-Ay2"/>
+                            <constraint firstItem="PLj-Zu-Dio" firstAttribute="top" secondItem="Ihv-l2-PaG" secondAttribute="top" constant="72" id="Ts7-jx-0fl"/>
+                            <constraint firstItem="PLj-Zu-Dio" firstAttribute="top" secondItem="Ihv-l2-PaG" secondAttribute="top" constant="72" id="VKN-mU-bfi"/>
+                            <constraint firstItem="PLj-Zu-Dio" firstAttribute="leading" secondItem="Ihv-l2-PaG" secondAttribute="leading" constant="27" id="c5b-vT-tEL"/>
+                            <constraint firstItem="PLj-Zu-Dio" firstAttribute="centerX" secondItem="Ihv-l2-PaG" secondAttribute="centerX" id="d96-PQ-bVc"/>
+                            <constraint firstItem="Ihv-l2-PaG" firstAttribute="trailing" secondItem="PLj-Zu-Dio" secondAttribute="trailing" constant="27" id="jTj-dU-weS"/>
+                            <constraint firstItem="PLj-Zu-Dio" firstAttribute="centerY" secondItem="Ihv-l2-PaG" secondAttribute="centerY" constant="12.5" id="nec-1w-2Wu"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" selectedImage="homekit" id="Dbe-iO-2ql">
                         <color key="badgeColor" red="0.70277593549999995" green="0.36888424339999998" blue="0.3602793842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="sportsCollectionView" destination="PLj-Zu-Dio" id="V7f-u2-kJi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FfU-AK-QFV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1664" y="-313"/>
+            <point key="canvasLocation" x="1663.3587786259541" y="-313.38028169014086"/>
         </scene>
         <!--Home Leagues View Controller-->
         <scene sceneID="T5l-R0-DGs">
@@ -116,7 +123,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                         <color key="tintColor" systemColor="systemGray4Color"/>
-                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.090903970100918052" green="0.42850502250120814" blue="0.077171506862218839" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="3RL-Du-1rS" kind="relationship" relationship="viewControllers" id="5bA-EB-d9i"/>

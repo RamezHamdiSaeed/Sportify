@@ -28,9 +28,11 @@
 		1E0574D52BD9A4C0009E71C8 /* FavoriteLeaguesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0574D42BD9A4C0009E71C8 /* FavoriteLeaguesViewController.swift */; };
 		1E0574D72BD9A604009E71C8 /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0574D62BD9A604009E71C8 /* Sport.swift */; };
 		1E18AD152BD720CB00684B71 /* OnBoardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E18AD142BD720CB00684B71 /* OnBoardingPage.swift */; };
-		1E740BEB2BD889890096E3C1 /* OlympicAthlete.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1E740BEA2BD889890096E3C1 /* OlympicAthlete.mp4 */; };
 		1E80290A2BD85ABA00BA9EB4 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8029092BD85ABA00BA9EB4 /* WelcomeViewController.swift */; };
 		1E80290D2BD85B7900BA9EB4 /* OnBoardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E80290C2BD85B7900BA9EB4 /* OnBoardingManager.swift */; };
+		1EA3026F2BDA145A00D44BAE /* tempCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA3026E2BDA145A00D44BAE /* tempCollectionViewController.swift */; };
+		1EA302722BDA196700D44BAE /* sportCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA302702BDA196700D44BAE /* sportCollectionViewCell.swift */; };
+		1EA302732BDA196700D44BAE /* sportCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EA302712BDA196700D44BAE /* sportCollectionViewCell.xib */; };
 		C23B284731DDDE3800792669 /* Pods_Sportify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A384CC8DDDA410E7A9C2C3A1 /* Pods_Sportify.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,9 +61,11 @@
 		1E0574D42BD9A4C0009E71C8 /* FavoriteLeaguesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLeaguesViewController.swift; sourceTree = "<group>"; };
 		1E0574D62BD9A604009E71C8 /* Sport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
 		1E18AD142BD720CB00684B71 /* OnBoardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPage.swift; sourceTree = "<group>"; };
-		1E740BEA2BD889890096E3C1 /* OlympicAthlete.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = OlympicAthlete.mp4; path = ../../../../../Downloads/OlympicAthlete.mp4; sourceTree = "<group>"; };
 		1E8029092BD85ABA00BA9EB4 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		1E80290C2BD85B7900BA9EB4 /* OnBoardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingManager.swift; sourceTree = "<group>"; };
+		1EA3026E2BDA145A00D44BAE /* tempCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tempCollectionViewController.swift; sourceTree = "<group>"; };
+		1EA302702BDA196700D44BAE /* sportCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sportCollectionViewCell.swift; sourceTree = "<group>"; };
+		1EA302712BDA196700D44BAE /* sportCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = sportCollectionViewCell.xib; sourceTree = "<group>"; };
 		A384CC8DDDA410E7A9C2C3A1 /* Pods_Sportify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sportify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9E4DF8341EE0F8CDE5272F0 /* Pods-Sportify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sportify.debug.xcconfig"; path = "Target Support Files/Pods-Sportify/Pods-Sportify.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,7 +103,6 @@
 		04BE4CA92BCED5AB001853A8 /* Sportify */ = {
 			isa = PBXGroup;
 			children = (
-				1E740BE92BD889690096E3C1 /* Assets */,
 				1E80290B2BD85B3900BA9EB4 /* Utility */,
 				04BE4CC12BCED5E9001853A8 /* NetworkLayer */,
 				04BE4CAA2BCED5AB001853A8 /* AppDelegate.swift */,
@@ -125,6 +128,9 @@
 				1E0574D22BD9A4A4009E71C8 /* HomeLeaguesViewController.swift */,
 				1E0574D42BD9A4C0009E71C8 /* FavoriteLeaguesViewController.swift */,
 				1E0574D62BD9A604009E71C8 /* Sport.swift */,
+				1EA3026E2BDA145A00D44BAE /* tempCollectionViewController.swift */,
+				1EA302702BDA196700D44BAE /* sportCollectionViewCell.swift */,
+				1EA302712BDA196700D44BAE /* sportCollectionViewCell.xib */,
 			);
 			path = Sportify;
 			sourceTree = "<group>";
@@ -142,14 +148,6 @@
 				A384CC8DDDA410E7A9C2C3A1 /* Pods_Sportify.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1E740BE92BD889690096E3C1 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				1E740BEA2BD889890096E3C1 /* OlympicAthlete.mp4 */,
-			);
-			path = Assets;
 			sourceTree = "<group>";
 		};
 		1E80290B2BD85B3900BA9EB4 /* Utility */ = {
@@ -231,9 +229,9 @@
 			files = (
 				04BE4CB72BCED5AE001853A8 /* Assets.xcassets in Resources */,
 				04BE4CBA2BCED5AE001853A8 /* Base in Resources */,
+				1EA302732BDA196700D44BAE /* sportCollectionViewCell.xib in Resources */,
 				04BE4CB22BCED5AB001853A8 /* Base in Resources */,
 				04BE4E0A2BD6A8DC001853A8 /* Details.storyboard in Resources */,
-				1E740BEB2BD889890096E3C1 /* OlympicAthlete.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,11 +290,13 @@
 				1E80290D2BD85B7900BA9EB4 /* OnBoardingManager.swift in Sources */,
 				1E0574D72BD9A604009E71C8 /* Sport.swift in Sources */,
 				04BE4E022BD6A1AE001853A8 /* LocalDataSource.swift in Sources */,
+				1EA3026F2BDA145A00D44BAE /* tempCollectionViewController.swift in Sources */,
 				04BE4E082BD6A233001853A8 /* League.swift in Sources */,
 				04BE4CAF2BCED5AB001853A8 /* ViewController.swift in Sources */,
 				04BE4CB52BCED5AB001853A8 /* Sportify.xcdatamodeld in Sources */,
 				04BE4CAB2BCED5AB001853A8 /* AppDelegate.swift in Sources */,
 				04BE4E0C2BD6A92A001853A8 /* LeagueDetails.swift in Sources */,
+				1EA302722BDA196700D44BAE /* sportCollectionViewCell.swift in Sources */,
 				04BE4E042BD6A1CB001853A8 /* RemoteDataSource.swift in Sources */,
 				1E0574D52BD9A4C0009E71C8 /* FavoriteLeaguesViewController.swift in Sources */,
 				1E0574D32BD9A4A4009E71C8 /* HomeLeaguesViewController.swift in Sources */,
