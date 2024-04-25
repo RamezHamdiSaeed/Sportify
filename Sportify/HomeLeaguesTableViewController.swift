@@ -14,7 +14,8 @@ class HomeLeaguesTableViewController: UITableViewController {
     var sportChosen : Sport! = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "homeSportLeague")
+        let nib = UINib(nibName: "LeagueTableViewCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "homeSportLeague")
 
 //        leaguesNetwork = GetLeaguesRepo(remoteDataSource: FetchLeaguesNetwork()).getLeaguesNetwork(sport: sportChosen)
         getLeagues(of: sportChosen)
@@ -32,15 +33,14 @@ class HomeLeaguesTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "homeSportLeague", for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "homeSportLeague", for: indexPath) as! LeagueTableViewCell
         let imageUrl = (self.leaguesNetwork[indexPath.item].leagueLogo ?? self.leaguesNetwork[indexPath.item].countryLogo) ?? "UnKnown"
 
-        cell.imageView?.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "AppIcon"))
+        cell.leagueImage.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "AppIcon"))
 
         let title:String = (self.leaguesNetwork[indexPath.item].leagueName ?? self.leaguesNetwork[indexPath.item].countryName) ?? "UnKnown"
 
-        cell.textLabel?.text = title
+        cell.leagueName?.text = title
         
         
         return cell
