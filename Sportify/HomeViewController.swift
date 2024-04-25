@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
         let nib = UINib(nibName: "sportCollectionViewCell", bundle: nil)
         self.sportsCollectionView.register(nib, forCellWithReuseIdentifier: "sportCell")
 
-        getLeagues(of: .football)
+//        getLeagues(of: .football)
     }
     
     override func viewDidLayoutSubviews() {
@@ -79,20 +79,20 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         
     }
     
-    //LeagueRepositoryImpl Usage
-    func getLeagues(of sport: Sport){
-        print("getting the leagues...")
-        LeagueRepositoryImpl.shared.getLeaguesFromNetwork(of: sport){result in
-            switch result{
-            case .success(let leagues):
-                //your logic goes here
-                print(leagues)
-            case .failure(let error):
-                //error handling here
-                print(error)
-            }
-        }
-    }
+//    //LeagueRepositoryImpl Usage
+//    func getLeagues(of sport: Sport){
+//        print("getting the leagues...")
+//        LeagueRepositoryImpl.shared.getLeaguesFromNetwork(of: sport){result in
+//            switch result{
+//            case .success(let leagues):
+//                //your logic goes here
+//                print(leagues)
+//            case .failure(let error):
+//                //error handling here
+//                print(error)
+//            }
+//        }
+//    }
 
     
 }

@@ -10,14 +10,14 @@ import SDWebImage
 
 class HomeLeaguesTableViewController: UITableViewController {
     
-    var leaguesNetwork : Leagues! = nil
+    var leaguesNetwork : [League] = [League]()
     var sportChosen : Sport! = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "homeSportLeague")
 
-        leaguesNetwork = GetLeaguesRepo(remoteDataSource: FetchLeaguesNetwork()).getLeaguesNetwork(sport: sportChosen)
-        
+//        leaguesNetwork = GetLeaguesRepo(remoteDataSource: FetchLeaguesNetwork()).getLeaguesNetwork(sport: sportChosen)
+        getLeagues(of: sportChosen)
     }
 
     // MARK: - Table view data source
@@ -27,26 +27,27 @@ class HomeLeaguesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return leaguesNetwork.result!.count
+        return leaguesNetwork.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "homeSportLeague", for: indexPath)
         
-        let imageUrl = (self.leaguesNetwork.result![indexPath.item].league_logo ?? self.leaguesNetwork.result![indexPath.item].country_logo) ?? "UnKnown"
-        
+        let imageUrl = (self.leaguesNetwork[indexPath.item].leagueLogo ?? self.leaguesNetwork[indexPath.item].countryLogo) ?? "UnKnown"
+
         cell.imageView?.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "AppIcon"))
-        
-        let title:String = (self.leaguesNetwork.result![indexPath.item].league_name ?? self.leaguesNetwork.result![indexPath.item].country_name) ?? "UnKnown"
-        
+
+        let title:String = (self.leaguesNetwork[indexPath.item].leagueName ?? self.leaguesNetwork[indexPath.item].countryName) ?? "UnKnown"
+
         cell.textLabel?.text = title
+        
         
         return cell
     }
    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 150
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //navigate to the first view controller in the Details Story Board
@@ -62,5 +63,19 @@ class HomeLeaguesTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    func getLeagues(of sport: Sport){
+         print("getting the leagues...")
+         LeagueRepositoryImpl.shared.getLeaguesFromNetwork(of: sport){result in
+             switch result{
+             case .success(let leagues):
+                 //your logic goes here
+                 self.leaguesNetwork = leagues.result!
+                 self.tableView.reloadData()
+                 print(leagues)
+             case .failure(let error):
+                 //error handling here
+                 print(error)
+             }
+         }
+     }
 }
