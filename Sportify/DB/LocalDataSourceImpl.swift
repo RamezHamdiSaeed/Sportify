@@ -31,9 +31,9 @@ class LocalDataSourceImpl : LocalDataSource{
     
     func insertLeagueToFav(league: League) {
         let newLeague = LeaguesDB(context: self.context!)
-        newLeague.leagueKey = Int32(league.leagueKey!)
+        newLeague.leagueKey = Int32(league.leagueKey  ?? 0)
         newLeague.leagueName = league.leagueName
-        newLeague.countryKey = Int32(league.countryKey!)
+        newLeague.countryKey = Int32(league.countryKey ?? 0)
         newLeague.countryName = league.countryName
         newLeague.leagueLogo = league.leagueLogo
         newLeague.countryLogo = league.countryLogo
