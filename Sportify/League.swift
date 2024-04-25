@@ -7,10 +7,25 @@
 
 import Foundation
 
-struct Leagues : Decodable{
-    var success:Int?
-    var result:[League]?
+struct Leagues: Codable {
+    let success: Int?
+    let result: [League]?
 }
-struct League : Decodable{
-    var league_key, league_name, country_key, country_name, league_logo, country_logo :String?
+
+struct League: Codable {
+    let leagueKey: Int?
+    let leagueName: String?
+    let countryKey: Int?
+    let countryName: String?
+    let leagueLogo: String?
+    let countryLogo: String?
+
+    enum CodingKeys: String, CodingKey {
+        case leagueKey = "league_key"
+        case leagueName = "league_name"
+        case countryKey = "country_key"
+        case countryName = "country_name"
+        case leagueLogo = "league_logo"
+        case countryLogo = "country_logo"
+    }
 }

@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
         let nib = UINib(nibName: "sportCollectionViewCell", bundle: nil)
         self.sportsCollectionView.register(nib, forCellWithReuseIdentifier: "sportCell")
 
+        getLeagues(of: .football)
     }
     
     override func viewDidLayoutSubviews() {
@@ -27,7 +28,6 @@ class HomeViewController: UIViewController {
             present(welcomeVC, animated: true)
         }
     }
-
 
 }
 
@@ -51,7 +51,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.sportsCollectionView.frame.width/2, height: self.sportsCollectionView.frame.height )
+        return CGSize(width: self.sportsCollectionView.frame.width/2, height: self.sportsCollectionView.frame.height)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 40
@@ -59,5 +59,21 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+    
+    //LeagueRepositoryImpl Usage
+    func getLeagues(of sport: Sport){
+        print("getting the leagues...")
+        LeagueRepositoryImpl.shared.getLeaguesFromNetwork(of: sport){result in
+            switch result{
+            case .success(let leagues):
+                //your logic goes here
+                print(leagues)
+            case .failure(let error):
+                //error handling here
+                print(error)
+            }
+        }
+    }
+
     
 }

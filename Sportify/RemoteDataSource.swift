@@ -9,16 +9,10 @@ import Foundation
 
 protocol RemoteDataSource{
     
-    func getLeagues(sport: Sport)->Leagues
-    func getLeagueInfo(league: League)-> LeagueDetails
-    func getTeamInfo(team: Team)-> TeamDetails
+    static func getLeagues(of sport: Sport, completion: @escaping (Result<Leagues, NetworkError>) -> Void)
+//    func getLeagueInfo(league: League)-> LeagueDetails
+//    func getTeamInfo(team: Team)-> TeamDetails
     
 }
 
 
-enum Sport{
-    case tennis
-    case basketball
-    case cricket
-    case football
-}
