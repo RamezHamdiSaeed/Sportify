@@ -7,6 +7,11 @@
 
 import Foundation
 
+protocol TableViewsRefresherDB{
+    func updateData(leagues:[League])
+}
+
+
 protocol LeagueRepository{
     
     func getLeaguesFromNetwork(of sport: Sport, 
@@ -21,15 +26,20 @@ protocol LeagueRepository{
     func getLatestResults(sport: Sport, leagueId: Int,
                           completion: @escaping (Result<LatestResults, NetworkError>) -> Void)
     
-    func getLeaguesFromFav()->[League]?
+    func getLeaguesFromFav()
     func insertLeagueToFav(league: League)
     func deleteLeagueToFav(league: League)
 }
 
 class LeagueRepositoryImpl: LeagueRepository{
     
+    private var tableViewToBeRefreshed: TableViewsRefresherDB? = nil
     static let shared = LeagueRepositoryImpl()
     private init(){}
+    
+    func setupViewToBeUpdated(tableViewToBeRefreshed:TableViewsRefresherDB){
+        self.tableViewToBeRefreshed = tableViewToBeRefreshed
+    }
     
     func getLeaguesFromNetwork(of sport: Sport, completion: @escaping (Result<Leagues, NetworkError>) -> Void){
         RemoteDataSourceImpl.getLeagues(of: sport, completion: completion)
@@ -43,12 +53,13 @@ class LeagueRepositoryImpl: LeagueRepository{
     }
     
     
-    func getLeaguesFromFav()->[League]? {
-        return nil
+    func getLeaguesFromFav() {
+        self.tableViewToBeRefreshed?.updateData(leagues: LocalDataSourceImpl.shared.getLeaguesFromFav()!)
     }
     
     func insertLeagueToFav(league: League) {
-        
+        LocalDataSourceImpl.shared.insertLeagueToFav(league: league)
+        self.getLeaguesFromFav()
     }
     
     func deleteLeagueToFav(league: League) {

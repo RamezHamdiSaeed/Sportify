@@ -8,10 +8,13 @@
 import Foundation
 import UIKit
 import CoreData
+
+
 class LocalDataSourceImpl : LocalDataSource{
     
-    private let shared = LocalDataSourceImpl()
+    public static let shared = LocalDataSourceImpl()
     private var leagues = [LeaguesDB]()
+
     
     let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
