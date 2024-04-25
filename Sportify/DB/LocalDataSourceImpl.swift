@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+import CoreData
 class LocalDataSourceImpl : LocalDataSource{
     
     private let shared = LocalDataSourceImpl()
