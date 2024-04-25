@@ -9,6 +9,8 @@ import UIKit
 
 class LeagueDetailsViewController: UIViewController {
 
+    var leagueId: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
