@@ -9,21 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="47" y="-34"/>
-        </scene>
         <!--Favorite-->
         <scene sceneID="f7w-nq-svF">
             <objects>
@@ -42,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="1663" y="335"/>
         </scene>
-        <!--Home-->
+        <!--Home View Controller-->
         <scene sceneID="Hhb-bs-aMj">
             <objects>
                 <viewController id="3RL-Du-1rS" customClass="HomeViewController" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
@@ -51,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PLj-Zu-Dio">
-                                <rect key="frame" x="27" y="131" width="339" height="591"/>
+                                <rect key="frame" x="27" y="175" width="339" height="547"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tiX-lI-rUD">
                                     <size key="itemSize" width="128" height="128"/>
@@ -88,31 +73,51 @@
                             <constraint firstItem="PLj-Zu-Dio" firstAttribute="centerY" secondItem="Ihv-l2-PaG" secondAttribute="centerY" constant="12.5" id="nec-1w-2Wu"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" selectedImage="homekit" id="Dbe-iO-2ql">
-                        <color key="badgeColor" red="0.70277593549999995" green="0.36888424339999998" blue="0.3602793842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="AYE-Ak-LqK"/>
                     <connections>
                         <outlet property="sportsCollectionView" destination="PLj-Zu-Dio" id="V7f-u2-kJi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FfU-AK-QFV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1663.3587786259541" y="-313.38028169014086"/>
+            <point key="canvasLocation" x="2590.0763358778627" y="-313.38028169014086"/>
         </scene>
-        <!--Home Leagues View Controller-->
-        <scene sceneID="T5l-R0-DGs">
+        <!--Table View Controller-->
+        <scene sceneID="LP3-PW-MUH">
             <objects>
-                <viewController storyboardIdentifier="HomeLeaguesViewController" id="oVp-4i-1jY" customClass="HomeLeaguesViewController" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Eed-au-AQa">
+                <tableViewController id="Bcd-k6-SUQ" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="pTv-NI-v1p">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ZNA-m4-wRa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5RG-VQ-mFb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeSportLeague" textLabel="mp0-GG-Fw0" style="IBUITableViewCellStyleDefault" id="tLi-3h-AK0">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tLi-3h-AK0" id="P5r-ZO-NOu">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mp0-GG-Fw0">
+                                            <rect key="frame" x="20" y="0.0" width="353" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Bcd-k6-SUQ" id="S35-Ro-Gz6"/>
+                            <outlet property="delegate" destination="Bcd-k6-SUQ" id="bIb-ch-IFz"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fi0-7g-Ukp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2712" y="-313"/>
+            <point key="canvasLocation" x="3446.5648854961833" y="-313.38028169014086"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ALh-sq-KvA">
@@ -126,7 +131,7 @@
                         <color key="selectedImageTintColor" red="0.090903970100918052" green="0.42850502250120814" blue="0.077171506862218839" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="3RL-Du-1rS" kind="relationship" relationship="viewControllers" id="5bA-EB-d9i"/>
+                        <segue destination="pNO-yw-l7N" kind="relationship" relationship="viewControllers" id="5bA-EB-d9i"/>
                         <segue destination="woT-jC-gPp" kind="relationship" relationship="viewControllers" id="kFJ-e2-vQ1"/>
                     </connections>
                 </tabBarController>
@@ -162,7 +167,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w80-7p-3mw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="47" y="639"/>
+            <point key="canvasLocation" x="934" y="613"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="IXv-yH-m43">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pNO-yw-l7N" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" selectedImage="homekit" id="Dbe-iO-2ql">
+                        <color key="badgeColor" red="0.70277593549999995" green="0.36888424339999998" blue="0.3602793842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M2S-NW-L6S">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3RL-Du-1rS" kind="relationship" relationship="rootViewController" id="RHx-n2-XZe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pkz-gy-XkF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1663.3587786259541" y="-313.38028169014086"/>
         </scene>
     </scenes>
     <resources>

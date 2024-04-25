@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol LeagueRepository{
+    func getLeaguesNetwork(sport:Sport)->Leagues
+}

@@ -11,7 +11,6 @@ protocol LocalDataSource{
     
     func getLeagues()->[League]
     func insertLeague(league: League)
-    func updateLeague(league: League)
     func deleteLeague(league: League)
     
 }
