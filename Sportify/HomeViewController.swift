@@ -59,6 +59,25 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let homeLeaguesTableVC:HomeLeaguesTableViewController = HomeLeaguesTableViewController()
+        let sportName:String = self.sports[indexPath.item].name
+        var sportNameEnum: Sport?
+        switch sportName{
+        case "Football":
+            sportNameEnum = .football
+        case "BasketBall":
+            sportNameEnum = .basketball
+        case "Cricket":
+            sportNameEnum = .cricket
+        default:
+            sportNameEnum = .tennis
+
+        }
+        homeLeaguesTableVC.sportChosen = sportNameEnum
+        self.navigationController?.pushViewController(homeLeaguesTableVC, animated: true)
+        
+    }
     
     //LeagueRepositoryImpl Usage
     func getLeagues(of sport: Sport){

@@ -12,5 +12,6 @@ protocol LocalDataSource{
     func getLeaguesFromFav()->[League]?
     func insertLeagueToFav(league: League)
     func deleteLeagueToFav(league: League)
+
     
 }
