@@ -12,8 +12,6 @@ import Foundation
 class TeamRepositoryImpl : TeamRepository{
 
     
-
-    
     static let shared = TeamRepositoryImpl()
     private init(){}
 

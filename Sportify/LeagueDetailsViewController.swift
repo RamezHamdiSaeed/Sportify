@@ -22,7 +22,6 @@ class LeagueDetailsViewController: UIViewController{
         presenter = LeagueDetailsPresenterImpl(view: self)
         setupCollectionView()
         getData()
-        getLeagues(of: .football, for: "96")
 
         
     }
@@ -83,10 +82,15 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
         case 0 :
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailsCell", for: indexPath) as? LeagueDetailsCollectionViewCell else {fatalError("Unable deque cell...")}
             let cellData = upcomingEvents[indexPath.row]
-            cell.firstTeamNameLabel.text = cellData.eventHomeTeam ?? "Team name"
-            cell.firstTeamLogo.sd_setImage(with: URL(string: cellData.eventHomeTeamLogo ?? ""), placeholderImage: UIImage(named: "AppIcon"))
-            cell.secondTeamNameLabel.text = cellData.eventAwayTeam ?? "Team name"
-            cell.secondTeamLogo.sd_setImage(with: URL(string: cellData.eventAwayTeamLogo ?? ""), placeholderImage: UIImage(named: "AppIcon"))
+            if AppCommon.shared.sport == .tennis{
+                
+            }else{
+                cell.firstTeamNameLabel.text = cellData.eventHomeTeam ?? "Team name"
+                cell.firstTeamLogo.sd_setImage(with: URL(string: cellData.eventHomeTeamLogo ?? ""), placeholderImage: UIImage(named: "AppIcon"))
+                cell.secondTeamNameLabel.text = cellData.eventAwayTeam ?? "Team name"
+                cell.secondTeamLogo.sd_setImage(with: URL(string: cellData.eventAwayTeamLogo ?? ""), placeholderImage: UIImage(named: "AppIcon"))
+
+            }
             cell.timeLabel.text = cellData.eventTime ?? ""
             cell.dateLabel.text = ""
             if let date = cellData.eventDate{
@@ -121,7 +125,17 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if AppCommon.shared.sport == .football && indexPath.section == 2 {
+            var destinationViewController = self.storyboard?.instantiateViewController(withIdentifier: "TeamDetailsTableViewController") as! TeamDetailsTableViewController
+            destinationViewController.teamId = teams[indexPath.row].teamKey ?? 0
+            self.navigationController?.pushViewController(destinationViewController, animated: true)
+        }
+    }
+    
 }
+
+
 
 extension LeagueDetailsViewController: LeagueDetailsView{
     func showUpcomingEvents(events: [Event]?) {
@@ -160,22 +174,7 @@ extension LeagueDetailsViewController: LeagueDetailsView{
         let reformattedDate = dateFormatter.string(from: date)
         return reformattedDate
     }
-    func getLeagues(of sport: Sport, for teamId: String){
-        print("getting the leagues...")
-        TeamRepositoryImpl.shared.getTeamInfo(of: sport, for: teamId){
-            result in
-                switch result{
-                case .success(let teamPlayers):
-                    //your logic goes here
-                    print(" Team Players are ::::::::\(teamPlayers.result![0].players![0])")
-                case .failure(let error):
-                    //error handling here
-                    print("error is ::::::\(error.localizedDescription)")
-
-                }
-        }
-
-    }
+  
 
 }
 

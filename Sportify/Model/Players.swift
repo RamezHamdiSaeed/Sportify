@@ -117,6 +117,7 @@ struct Player: Codable {
 }
 
 struct Coach: Codable {
+    
     let coachName: String?
     let coachCountry: String?
     let coachAge: String?

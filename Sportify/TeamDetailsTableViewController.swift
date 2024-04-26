@@ -7,39 +7,79 @@
 
 import UIKit
 
-class TeamDetailsTableViewController: UITableViewController {
+protocol TeamDetailsView{
+    func showTeamDetails(_ teamOfPlayers: [TeamOfPlayers])
+}
 
+class TeamDetailsTableViewController: UITableViewController{
+
+    var teamId: Int!
+    var presenter: TeamDetailsPresenter!
+    var team = [TeamOfPlayers]()
+    var teamPlayers = [Player]()
+    var teamCoach = [Coach]()
+    let sectionTitles = ["Team", "Coaches", "Players"]
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        presenter = TeamDetailsPresenter()
+        presenter.attachView(view: self)
+        presenter.getTeamInfo(of: .football, for: String(teamId))
+        let nib = UINib(nibName: "LeagueTableViewCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "homeSportLeague")
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        switch section {
+        case 0:
+            return team.count
+        case 1:
+            return teamCoach.count
+        default:
+            return teamPlayers.count
+        }
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "homeSportLeague", for: indexPath) as! LeagueTableViewCell
+        
+        switch indexPath.section {
+        case 0:
+            cell.leagueImage.sd_setImage(with: URL(string: team[indexPath.row].teamLogo ?? ""), placeholderImage: UIImage(named: "AppIcon"))
+            cell.leagueName.text = team[indexPath.row].teamName
+        case 1:
+            cell.leagueImage.image = UIImage(systemName: "person.circle.fill")
+            cell.leagueName.text = teamCoach[indexPath.row].coachName
+        default:
+            cell.leagueImage.sd_setImage(with: URL(string: teamPlayers[indexPath.row].playerImage ?? ""), placeholderImage: UIImage(systemName: "person.circle.fill"))
+            cell.leagueName.text = teamPlayers[indexPath.row].playerName
+        }
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+           // Return the title for each section
+           return sectionTitles[section]
+       }
+
+       override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+           // Return the height for each section header
+           return 40 // Adjust as needed to create space between sections
+       }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -87,4 +127,13 @@ class TeamDetailsTableViewController: UITableViewController {
     */
 
 
+}
+
+extension TeamDetailsTableViewController: TeamDetailsView{
+    func showTeamDetails(_ teamOfPlayers: [TeamOfPlayers]) {
+        team = teamOfPlayers
+        teamPlayers = teamOfPlayers[0].players ?? []
+        teamCoach = teamOfPlayers[0].coaches ?? []
+        self.tableView.reloadData()
+    }
 }
