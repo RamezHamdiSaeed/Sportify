@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/ramezhamdisaeed/Documents/GitHub/Sportify/Sportify/DB/LeaguesDB+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/ramezhamdisaeed/Documents/GitHub/Sportify/Sportify/DB/LeaguesDB+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
       location = "group:Sportify.xcodeproj">
    </FileRef>
    <FileRef

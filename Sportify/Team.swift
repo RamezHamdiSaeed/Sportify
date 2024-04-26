@@ -7,6 +7,3 @@
 
 import Foundation
 
-protocol Team{
-    
-}

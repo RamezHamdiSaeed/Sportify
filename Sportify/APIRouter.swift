@@ -30,7 +30,8 @@ enum Sport {
 
 enum APIRouter: URLRequestConvertible {
     case leagues(sport: Sport)
-    case upcomingEvents(sport: Sport, leagueId: String, from: String, to: String)
+    case events(sport: Sport, leagueId: String, from: String, to: String)
+    case teams(Sport: Sport, leagueId: String)
     
     var method: HTTPMethod {
         return .get
@@ -45,7 +46,7 @@ enum APIRouter: URLRequestConvertible {
         case .leagues(_):
             return ["met": "Leagues",
                     "APIkey": Constants.API.key]
-        case .upcomingEvents(_, let leagueId, let from, let to):
+        case .events(_, let leagueId, let from, let to):
             return [
                 "met": "Fixtures",
                 "APIkey": Constants.API.key,
@@ -53,13 +54,20 @@ enum APIRouter: URLRequestConvertible {
                 "from": from,
                 "to": to
             ]
+        case .teams(_, let leagueId):
+            return [
+                "met": "Teams",
+                "APIkey": Constants.API.key,
+                "leagueId": leagueId,
+            ]
         }
     }
     
     var path: String {
         switch self {
-        case .leagues(let sport), .upcomingEvents(let sport, _, _, _):
+        case .leagues(let sport), .events(let sport, _, _, _), .teams(let sport, _):
             return sport.endpoint
+        
         }
     }
     
@@ -71,4 +79,3 @@ enum APIRouter: URLRequestConvertible {
         return try encoding.encode(urlRequest, with: parameters)
     }
 }
-
