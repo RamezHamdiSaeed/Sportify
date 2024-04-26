@@ -8,5 +8,8 @@
 import Foundation
 
 protocol TeamRepository{
-    func getTeamInfo(team: Team)-> TeamDetails
+
+    func getTeamInfo(of sport: Sport,
+                         for teamId: String,
+                         completion: @escaping (Result<PlayerResponse, NetworkError>) -> Void)
 }

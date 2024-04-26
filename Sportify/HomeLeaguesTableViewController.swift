@@ -8,7 +8,9 @@
 import UIKit
 import SDWebImage
 
-class HomeLeaguesTableViewController: UITableViewController {
+class HomeLeaguesTableViewController: UITableViewController ,HomeLeaguesView{
+
+    
     
     var leaguesNetwork : [League] = [League]()
     var sportChosen : Sport! = nil
@@ -18,7 +20,7 @@ class HomeLeaguesTableViewController: UITableViewController {
         self.tableView.register(nib, forCellReuseIdentifier: "homeSportLeague")
         
         //        leaguesNetwork = GetLeaguesRepo(remoteDataSource: FetchLeaguesNetwork()).getLeaguesNetwork(sport: sportChosen)
-        getLeagues(of: sportChosen)
+        HomeLeaguesPresenter.getLeaguesFromNetwork(of: sportChosen, tableViewToBeRefreshed: self)
     }
     
     // MARK: - Table view data source
@@ -58,30 +60,11 @@ class HomeLeaguesTableViewController: UITableViewController {
             navigationController?.pushViewController(destinationViewController, animated: true)
         }
     }
-        
-        
-        /*
-         // MARK: - Navigation
-         
-         // In a storyboard-based application, you will often want to do a little preparation before navigation
-         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-         }
-         */
-        func getLeagues(of sport: Sport){
-            print("getting the leagues...")
-            LeagueRepositoryImpl.shared.getLeaguesFromNetwork(of: sport){result in
-                switch result{
-                case .success(let leagues):
-                    //your logic goes here
-                    self.leaguesNetwork = leagues.result!
-                    self.tableView.reloadData()
-//                    print(leagues)
-                case .failure(let error):
-                    //error handling here
-                    print(error)
-                }
-            }
-        }
+    
+    func updateData(leagues: Leagues) {
+        leaguesNetwork = leagues.result ?? [League]()
+        print("$$$$$$$$$$$$$$$$$$$$$$$$$$\(leagues)")
+        self.tableView.reloadData()
     }
+
+}
