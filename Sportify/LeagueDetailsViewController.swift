@@ -22,6 +22,9 @@ class LeagueDetailsViewController: UIViewController{
         presenter = LeagueDetailsPresenterImpl(view: self)
         setupCollectionView()
         getData()
+        getLeagues(of: .football, for: "96")
+
+        
     }
     
     
@@ -157,5 +160,27 @@ extension LeagueDetailsViewController: LeagueDetailsView{
         let reformattedDate = dateFormatter.string(from: date)
         return reformattedDate
     }
-    
+    func getLeagues(of sport: Sport, for teamId: String){
+        print("getting the leagues...")
+        TeamRepositoryImpl.shared.getTeamInfo(of: sport, for: teamId){
+            result in
+                switch result{
+                case .success(let teamPlayers):
+                    //your logic goes here
+                    print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+                    print(" Team Players are ::::::::\(teamPlayers)")
+                    print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+                case .failure(let error):
+                    //error handling here
+                    print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+
+                    print("error is ::::::\(error)")
+                    print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+
+                }
+        }
+
+    }
+
 }
+

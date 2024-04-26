@@ -7,17 +7,17 @@
 
 import Foundation
 
-struct TeamResponse: Codable {
-    let success: Int
-    let result: [Team]
+struct PlayerResponse: Codable {
+    let success: Int?
+    let result: [TeamOfPlayers]?
 }
 
-struct Team: Codable {
-    let teamKey: Int
-    let teamName: String
-    let teamLogo: String
-    let players: [Player]
-    let coaches: [Coach]
+struct TeamOfPlayers: Codable {
+    let teamKey: Int?
+    let teamName: String?
+    let teamLogo: String?
+    let players: [Player]?
+    let coaches: [Coach]?
 
     enum CodingKeys: String, CodingKey {
         case teamKey = "team_key"
@@ -29,47 +29,47 @@ struct Team: Codable {
 }
 
 struct Player: Codable {
-    let playerKey: Int
-    let playerImage: String
-    let playerName: String
-    let playerNumber: String
+    let playerKey: Int?
+    let playerImage: String?
+    let playerName: String?
+    let playerNumber: String?
     let playerCountry: String?
-    let playerType: String
-    let playerAge: String
-    let playerMatchPlayed: String
-    let playerGoals: String
-    let playerYellowCards: String
-    let playerRedCards: String
-    let playerInjured: String
-    let playerSubstituteOut: String
-    let playerSubstitutesOnBench: String
-    let playerAssists: String
-    let playerBirthdate: String
-    let playerIsCaptain: String
-    let playerShotsTotal: String
-    let playerGoalsConceded: String
-    let playerFoulsCommitted: String
-    let playerTackles: String
-    let playerBlocks: String
-    let playerCrossesTotal: String
-    let playerInterceptions: String
-    let playerClearances: String
-    let playerDispossessed: String
-    let playerSaves: String
-    let playerInsideBoxSaves: String
-    let playerDuelsTotal: String
-    let playerDuelsWon: String
-    let playerDribbleAttempts: String
-    let playerDribbleSucc: String
-    let playerPenComm: String
-    let playerPenWon: String
-    let playerPenScored: String
-    let playerPenMissed: String
-    let playerPasses: String
-    let playerPassesAccuracy: String
-    let playerKeyPasses: String
-    let playerWordworks: String
-    let playerRating: String
+    let playerType: String?
+    let playerAge: String?
+    let playerMatchPlayed: String?
+    let playerGoals: String?
+    let playerYellowCards: String?
+    let playerRedCards: String?
+    let playerInjured: String?
+    let playerSubstituteOut: String?
+    let playerSubstitutesOnBench: String?
+    let playerAssists: String?
+    let playerBirthdate: String?
+    let playerIsCaptain: String?
+    let playerShotsTotal: String?
+    let playerGoalsConceded: String?
+    let playerFoulsCommitted: String?
+    let playerTackles: String?
+    let playerBlocks: String?
+    let playerCrossesTotal: String?
+    let playerInterceptions: String?
+    let playerClearances: String?
+    let playerDispossessed: String?
+    let playerSaves: String?
+    let playerInsideBoxSaves: String?
+    let playerDuelsTotal: String?
+    let playerDuelsWon: String?
+    let playerDribbleAttempts: String?
+    let playerDribbleSucc: String?
+    let playerPenComm: String?
+    let playerPenWon: String?
+    let playerPenScored: String?
+    let playerPenMissed: String?
+    let playerPasses: String?
+    let playerPassesAccuracy: String?
+    let playerKeyPasses: String?
+    let playerWordworks: String?
+    let playerRating: String?
 
     enum CodingKeys: String, CodingKey {
         case playerKey = "player_key"
@@ -117,7 +117,7 @@ struct Player: Codable {
 }
 
 struct Coach: Codable {
-    let coachName: String
+    let coachName: String?
     let coachCountry: String?
     let coachAge: String?
 

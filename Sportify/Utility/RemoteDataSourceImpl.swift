@@ -9,6 +9,7 @@ import Alamofire
 import Foundation
 
 class RemoteDataSourceImpl: RemoteDataSource {
+
     
     private static func performRequest<T: Decodable>(route: APIRouter, decoder: JSONDecoder = JSONDecoder(), completion: @escaping (Result<T, NetworkError>) -> Void) {
         print(route)
@@ -35,6 +36,10 @@ class RemoteDataSourceImpl: RemoteDataSource {
     
     static func getTeams(of sport: Sport, for leagueId: String, completion: @escaping (Result<Teams, NetworkError>) -> Void) {
         RemoteDataSourceImpl.performRequest(route: .teams(Sport: sport, leagueId: leagueId), completion: completion)
+    }
+    
+    static func getPlayers(of sport: Sport, for teamId: String, completion: @escaping (Result<PlayerResponse, NetworkError>) -> Void) {
+        RemoteDataSourceImpl.performRequest(route: .players(Sport: sport, teamId: teamId), completion: completion)
     }
     
 

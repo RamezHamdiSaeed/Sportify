@@ -32,6 +32,8 @@ enum APIRouter: URLRequestConvertible {
     case leagues(sport: Sport)
     case events(sport: Sport, leagueId: String, from: String, to: String)
     case teams(Sport: Sport, leagueId: String)
+    case players(Sport: Sport, teamId: String)
+
     
     var method: HTTPMethod {
         return .get
@@ -60,6 +62,12 @@ enum APIRouter: URLRequestConvertible {
                 "APIkey": Constants.API.key,
                 "leagueId": leagueId,
             ]
+        case .players(Sport: _, teamId: let teamId):
+            return [
+                "met": "Teams",
+                "APIkey": Constants.API.key,
+                "teamId": teamId,
+            ]
         }
     }
     
@@ -68,6 +76,8 @@ enum APIRouter: URLRequestConvertible {
         case .leagues(let sport), .events(let sport, _, _, _), .teams(let sport, _):
             return sport.endpoint
         
+        case .players(Sport: let Sport, teamId: _):
+            return Sport.endpoint
         }
     }
     
