@@ -10,9 +10,7 @@ import Foundation
 protocol RemoteDataSource{
     
     static func getLeagues(of sport: Sport, completion: @escaping (Result<Leagues, NetworkError>) -> Void)
-//    func getLeagueInfo(league: League)-> LeagueDetails
-//    func getTeamInfo(team: Team)-> TeamDetails
-    
+    static func getEvents(of sport: Sport, from startDate: String, to endDate: String, for leagueId: String, completion: @escaping (Result<EventsResponse, NetworkError>) -> Void)
+    static func getTeams(of sport: Sport, for leagueId: String, completion: @escaping (Result<Teams, NetworkError>) -> Void)
 }
-
 

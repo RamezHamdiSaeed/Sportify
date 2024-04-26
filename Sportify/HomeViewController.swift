@@ -74,7 +74,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             sportNameEnum = .tennis
 
         }
-        AppCommon.shared.sport = self.sports[indexPath.item]
+        AppCommon.shared.sport = sportNameEnum
         homeLeaguesTableVC.sportChosen = sportNameEnum
         self.navigationController?.pushViewController(homeLeaguesTableVC, animated: true)
         

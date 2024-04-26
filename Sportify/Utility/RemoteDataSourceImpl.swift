@@ -9,7 +9,9 @@ import Alamofire
 import Foundation
 
 class RemoteDataSourceImpl: RemoteDataSource {
+    
     private static func performRequest<T: Decodable>(route: APIRouter, decoder: JSONDecoder = JSONDecoder(), completion: @escaping (Result<T, NetworkError>) -> Void) {
+        print(route)
         AF.request(route).validate()
             .responseDecodable { (response: AFDataResponse<T>) in
                 switch response.result {
@@ -26,8 +28,15 @@ class RemoteDataSourceImpl: RemoteDataSource {
     static func getLeagues(of sport: Sport, completion: @escaping (Result<Leagues, NetworkError>) -> Void){
         RemoteDataSourceImpl.performRequest(route: .leagues(sport: sport), completion: completion)
     }
-//    static func getBasketUpcomingEvents(for leagueId: String, from startDate: String, to endDate: String, completion: @escaping (Result<BasketballUpcomingEvents, NetworkError>) -> Void){
-//        RemoteDataSourceImpl.performRequest(route: .upcomingEvents(sport: .basketball, leagueId: leagueId, from: startDate, to: endDate), completion: completion)
-//    }
+    
+    static func getEvents(of sport: Sport, from startDate: String, to endDate: String, for leagueId: String, completion: @escaping (Result<EventsResponse, NetworkError>) -> Void) {
+        RemoteDataSourceImpl.performRequest(route: .events(sport: sport, leagueId: leagueId, from: startDate, to: endDate), completion: completion)
+    }
+    
+    static func getTeams(of sport: Sport, for leagueId: String, completion: @escaping (Result<Teams, NetworkError>) -> Void) {
+        RemoteDataSourceImpl.performRequest(route: .teams(Sport: sport, leagueId: leagueId), completion: completion)
+    }
+    
+
   
 }

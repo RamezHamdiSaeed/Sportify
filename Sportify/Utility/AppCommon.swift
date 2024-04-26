@@ -9,6 +9,6 @@ import Foundation
 
 class AppCommon{
     public static let shared = AppCommon()
-    var sport : SportCategory?
+    var sport : Sport?
     private init(){}
 }

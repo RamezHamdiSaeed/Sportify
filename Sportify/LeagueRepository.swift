@@ -14,17 +14,18 @@ protocol TableViewsRefresherDB{
 
 protocol LeagueRepository{
     
-    func getLeaguesFromNetwork(of sport: Sport, 
+    func getLeaguesFromNetwork(of sport: Sport,
                                completion: @escaping (Result<Leagues, NetworkError>) -> Void)
     
-    func getUpcomingLeagueEvents(sport: Sport,
-                                 leagueId: Int,
-                                 from startDate: String,
-                                 to endDate: String,
-                                 completion: @escaping (Result<UpcomingEvents, NetworkError>) -> Void)
+    func getLeagueEvents(sport: Sport,
+                         leagueId: String,
+                         from startDate: String,
+                         to endDate: String,
+                         completion: @escaping (Result<EventsResponse, NetworkError>) -> Void)
     
-    func getLatestResults(sport: Sport, leagueId: Int,
-                          completion: @escaping (Result<LatestResults, NetworkError>) -> Void)
+    func getTeams(of sport: Sport,
+                  for leagueId: String,
+                  completion: @escaping (Result<Teams, NetworkError>) -> Void)
     
     func getLeaguesFromFav()
     func insertLeagueToFav(league: League)
@@ -44,13 +45,16 @@ class LeagueRepositoryImpl: LeagueRepository{
     func getLeaguesFromNetwork(of sport: Sport, completion: @escaping (Result<Leagues, NetworkError>) -> Void){
         RemoteDataSourceImpl.getLeagues(of: sport, completion: completion)
     }
-    func getUpcomingLeagueEvents(sport: Sport, leagueId: Int, from startDate: String, to endDate: String, completion: @escaping (Result<UpcomingEvents, NetworkError>) -> Void) {
+    func getLeagueEvents(sport: Sport, leagueId: String, from startDate: String, to endDate: String, completion: @escaping (Result<EventsResponse, NetworkError>) -> Void) {
+        RemoteDataSourceImpl.getEvents(of: sport, from: startDate, to: endDate, for: String(leagueId), completion: completion)
+    }
+    func getTeams(of sport: Sport,
+                  for leagueId: String,
+                  completion: @escaping (Result<Teams, NetworkError>) -> Void){
         
+        RemoteDataSourceImpl.getTeams(of: sport, for: leagueId, completion: completion)
     }
     
-    func getLatestResults(sport: Sport, leagueId: Int, completion: @escaping (Result<LatestResults, NetworkError>) -> Void) {
-        
-    }
     
     
     func getLeaguesFromFav() {
