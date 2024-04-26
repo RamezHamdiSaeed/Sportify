@@ -7,23 +7,22 @@
 
 import UIKit
 
-class FavoriteLeaguesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TableViewsRefresherDB{
+class FavoriteLeaguesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FavoriteLeaguesView{
 
     
 
     @IBOutlet weak var favoriteTableView: UITableView!
-    var leaguesDB : [League] = [League]()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "LeagueTableViewCell", bundle: nil)
         self.favoriteTableView.register(nib, forCellReuseIdentifier: "favoriteSportLeague")
-        LeagueRepositoryImpl.shared.setupViewToBeUpdated(tableViewToBeRefreshed: self)
-        LeagueRepositoryImpl.shared.getLeaguesFromFav() 
+        FavoriteLeaguesPresenter.setupView(tableViewToBeRefreshed: self)
+        FavoriteLeaguesPresenter.getLeaguesFromFav() 
     }
     func updateData(leagues: [League]) {
-        leaguesDB = leagues
+        FavoriteLeaguesPresenter.leaguesDB = leagues
         favoriteTableView.reloadData()
     }
     
@@ -33,17 +32,17 @@ class FavoriteLeaguesViewController: UIViewController, UITableViewDelegate, UITa
     }
 
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return leaguesDB.count
+         return FavoriteLeaguesPresenter.leaguesDB.count
     }
 
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteSportLeague", for: indexPath) as! LeagueTableViewCell
-        let imageUrl = (self.leaguesDB[indexPath.item].leagueLogo ?? self.leaguesDB[indexPath.item].countryLogo) ?? "UnKnown"
+        let imageUrl = (FavoriteLeaguesPresenter.leaguesDB[indexPath.item].leagueLogo ?? FavoriteLeaguesPresenter.leaguesDB[indexPath.item].countryLogo) ?? "UnKnown"
 
         cell.leagueImage.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "AppIcon"))
 
-        let title:String = (self.leaguesDB[indexPath.item].leagueName ?? self.leaguesDB[indexPath.item].countryName) ?? "UnKnown"
+        let title:String = (FavoriteLeaguesPresenter.leaguesDB[indexPath.item].leagueName ?? FavoriteLeaguesPresenter.leaguesDB[indexPath.item].countryName) ?? "UnKnown"
 
         cell.leagueName?.text = title
         
@@ -57,18 +56,6 @@ class FavoriteLeaguesViewController: UIViewController, UITableViewDelegate, UITa
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //navigate to the first view controller in the Details Story Board
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
 
 
 }

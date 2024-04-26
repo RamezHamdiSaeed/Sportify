@@ -167,15 +167,10 @@ extension LeagueDetailsViewController: LeagueDetailsView{
                 switch result{
                 case .success(let teamPlayers):
                     //your logic goes here
-                    print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-                    print(" Team Players are ::::::::\(teamPlayers)")
-                    print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+                    print(" Team Players are ::::::::\(teamPlayers.result![0].players![0])")
                 case .failure(let error):
                     //error handling here
-                    print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-
-                    print("error is ::::::\(error)")
-                    print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+                    print("error is ::::::\(error.localizedDescription)")
 
                 }
         }
