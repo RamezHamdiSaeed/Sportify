@@ -17,7 +17,7 @@ class AppLayouts{
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.95), heightDimension: .absolute(216))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0
-                                                      , bottom: 0, trailing: 16)
+                                                      , bottom: 8, trailing: 16)
         
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 16
@@ -51,8 +51,8 @@ class AppLayouts{
                                                       , bottom: 8, trailing: 0)
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 15
-                                                        , bottom: 10, trailing: 15)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 15
+                                                        , bottom: 8, trailing: 15)
         return section
         
     }
@@ -66,10 +66,10 @@ class AppLayouts{
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.95), heightDimension: .absolute(200))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0
-                                                      , bottom: 0, trailing: 16)
+                                                      , bottom: 0, trailing: 8)
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 16
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16
                                                         , bottom: 8, trailing: 0)
         section.orthogonalScrollingBehavior = .continuous
         
