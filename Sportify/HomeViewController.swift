@@ -11,23 +11,25 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var sportsCollectionView: UICollectionView!
     let sports = [SportCategory(name: "Football", image: "footBall"),SportCategory(name: "BasketBall", image: "basketBall"),SportCategory(name: "Cricket", image: "cricket"),SportCategory(name: "Tennis", image: "tennis")]
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "sportCollectionViewCell", bundle: nil)
         self.sportsCollectionView.register(nib, forCellWithReuseIdentifier: "sportCell")
-
-//        getLeagues(of: .football)
+    }
+    override func viewDidLayoutSubviews() {
+                if OnBoardingManager.shared.isNewuser(){
+                    let welcomeVC = self.storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+                    welcomeVC.modalPresentationStyle = .fullScreen
+                    present(welcomeVC, animated: true)
+                }
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-//        if OnBoardingManager.shared.isNewuser(){
-            let welcomeVC = self.storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
-            welcomeVC.modalPresentationStyle = .fullScreen
-            present(welcomeVC, animated: true)
-//        }
-    }
 
 }
 
@@ -79,21 +81,5 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         self.navigationController?.pushViewController(homeLeaguesTableVC, animated: true)
         
     }
-    
-//    //LeagueRepositoryImpl Usage
-//    func getLeagues(of sport: Sport){
-//        print("getting the leagues...")
-//        LeagueRepositoryImpl.shared.getLeaguesFromNetwork(of: sport){result in
-//            switch result{
-//            case .success(let leagues):
-//                //your logic goes here
-//                print(leagues)
-//            case .failure(let error):
-//                //error handling here
-//                print(error)
-//            }
-//        }
-//    }
-
     
 }

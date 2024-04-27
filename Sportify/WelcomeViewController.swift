@@ -13,28 +13,25 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var viewHolder: UIView!
     let scrollView = UIScrollView()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
         configure()
     }
     
     private func configure(){
         scrollView.frame = viewHolder.bounds
+        scrollView.backgroundColor = .black
         viewHolder.addSubview(scrollView)
-        let titles = ["Favorite Sports","Sport Leagues","Leagues Matches"]
-        for x in 0..<3 {
+        let titles = ["Favorite Sports","Leagues and Matches"]
+        for x in 0..<2 {
             
             let page = UIView(frame: CGRect(x: CGFloat(x) * viewHolder.frame.size.width, y: 0, width: viewHolder.frame.size.width, height: viewHolder.frame.size.height))
             
             scrollView.addSubview(page)
             
             let label = UILabel(frame: CGRect(x: 10, y: 10, width: page.frame.size.width-20, height: 120))
-//            let image = UIImageView(frame: CGRect(x: 0, y: 0, width: page.frame.size.width, height: page.frame.size.height))
             let animationView = LottieAnimationView()
                     animationView.animation = LottieAnimation.named("olympic_\(x+1)")
                     animationView.frame = CGRect(x: 0, y: 0, width: page.frame.size.width, height: page.frame.size.height)
@@ -46,18 +43,18 @@ class WelcomeViewController: UIViewController {
             
             
             animationView.contentMode = .scaleAspectFit
-//            image.image = UIImage(named: "Welcome_\(x+1)")
             page.addSubview(animationView)
             
             label.textAlignment = .center
             label.font = UIFont(name: "Helvetica-Bold", size: 32)
+            label.textColor = UIColor.white
             label.text = titles[x]
             page.addSubview(label)
             
             button.setTitleColor(.white, for: .normal)
-            button.backgroundColor = .black
+            button.backgroundColor = .darkGray
             button.setTitle("Continue", for: .normal)
-            if x == 2 {
+            if x == 1 {
                 button.setTitle("Get Started", for: .normal)
             }
             button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
@@ -65,7 +62,7 @@ class WelcomeViewController: UIViewController {
             page.addSubview(button)
 
             
-            scrollView.contentSize = CGSize(width: viewHolder.frame.size.width*3, height: 0)
+            scrollView.contentSize = CGSize(width: viewHolder.frame.size.width*2, height: 0)
             scrollView.isPagingEnabled = true
             
             
@@ -73,7 +70,7 @@ class WelcomeViewController: UIViewController {
     }
 
     @objc func didTapButton(_ button:UIButton){
-        guard button.tag < 3 else{
+        guard button.tag < 2 else{
             
             OnBoardingManager.shared.setIsNotNewUser()
             dismiss(animated: true,completion: nil)
