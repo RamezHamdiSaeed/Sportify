@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.9.1)
+  - lottie-ios (4.4.3)
   - NVActivityIndicatorView (5.2.0):
     - NVActivityIndicatorView/Base (= 5.2.0)
   - NVActivityIndicatorView/Base (5.2.0)
@@ -9,20 +10,23 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - lottie-ios
   - NVActivityIndicatorView
   - SDWebImage
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - lottie-ios
     - NVActivityIndicatorView
     - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
+  lottie-ios: fcb5e73e17ba4c983140b7d21095c834b3087418
   NVActivityIndicatorView: fe52a6a68664c2df8991d7d9e3d86d8d19453c53
   SDWebImage: 40b0b4053e36c660a764958bff99eed16610acbb
 
-PODFILE CHECKSUM: 18affc7bc2d8e4c1b597ab3c6884e0a5740e6caf
+PODFILE CHECKSUM: c3c5a3e28ca6c7f3f4d2a58b323463f6952f7415
 
 COCOAPODS: 1.15.2
