@@ -14,7 +14,6 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        view.backgroundColor = .black
     }
 
     override func viewDidLoad() {
@@ -49,7 +48,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         let sportName = self.sports[indexPath.item].name
        cell.image.image = UIImage(named: sportImage)
         cell.sportName.text = sportName
-        cell.backgroundColor = .darkGray
+        cell.backgroundColor = UIColor(named: "btn_cells_tabBar")
         cell.layer.cornerRadius = 20
         return cell
     }

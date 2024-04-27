@@ -17,7 +17,7 @@ class HomeLeaguesTableViewController: UITableViewController ,HomeLeaguesView{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor(named: "backgroundColor")
     }
     
     override func viewDidLoad() {
@@ -47,7 +47,7 @@ class HomeLeaguesTableViewController: UITableViewController ,HomeLeaguesView{
         let title:String = (self.leaguesNetwork[indexPath.item].leagueName ?? self.leaguesNetwork[indexPath.item].countryName) ?? "UnKnown"
         
         cell.leagueName?.text = title
-        cell.backgroundColor = .darkGray
+        cell.backgroundColor = UIColor(named: "btn_cells_tabBar")
         
         
         return cell
