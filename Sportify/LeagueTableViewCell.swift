@@ -14,7 +14,9 @@ class LeagueTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        leagueImage.layer.cornerRadius = 40
+        leagueImage.layer.masksToBounds = false
+        leagueImage.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

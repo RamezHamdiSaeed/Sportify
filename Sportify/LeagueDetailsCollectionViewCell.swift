@@ -20,7 +20,9 @@ class LeagueDetailsCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        firstTeamLogo.clipsToBounds = true
+        secondTeamLogo.clipsToBounds = true
+        
     }
 
 }

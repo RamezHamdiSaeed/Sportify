@@ -12,8 +12,10 @@ class LeagueDetailsViewController: UIViewController{
     
     var presenter: LeagueDetailsPresenter!
     @IBOutlet var detailsCollectionView: UICollectionView!
+    
     @IBOutlet var favButton: UIBarButtonItem!
     
+    var sectionTitles = ["Upcoming Events", "Latest Results", "Teams"]
     var upcomingEvents = [Event]()
     var latestEvents = [Event]()
     var teams = [Team]()
@@ -51,6 +53,8 @@ class LeagueDetailsViewController: UIViewController{
         detailsCollectionView.register(nib, forCellWithReuseIdentifier: "detailsCell")
         nib = UINib(nibName: "TeamsCollectionViewCell", bundle: nil)
         detailsCollectionView.register(nib, forCellWithReuseIdentifier: "teamCell")
+        detailsCollectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SectionHeader")
+
         configureCompositionalLayout()
     }
     
@@ -153,6 +157,22 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
             self.navigationController?.pushViewController(destinationViewController, animated: true)
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as? SectionHeader else {
+            fatalError("Failed to dequeue SectionHeaderView")
+        }
+        
+        headerView.sectionHeaderlabel.text = sectionTitles[indexPath.section]
+        
+        return headerView
+    }
+
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 70)
+    }
+   
     
 }
 

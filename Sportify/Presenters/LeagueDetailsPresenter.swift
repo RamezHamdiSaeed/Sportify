@@ -31,15 +31,14 @@ class LeagueDetailsPresenterImpl: LeagueDetailsPresenter{
     }
     
     func getUpcomingEvents(of sport: Sport, for leagueId: String) {
-//        print("getting upcoming events...")
+
         let calendar = Calendar.current
-        let tomorrow = calendar.date(byAdding: .day, value: 1, to: Date())!
+        let today = Date()
         let eightMonthsLater = calendar.date(byAdding: .month, value: 8, to: Date())!
         
-        LeagueRepositoryImpl.shared.getLeagueEvents(sport: sport, leagueId: leagueId, from: getFormattedDate(date: tomorrow), to: getFormattedDate(date: eightMonthsLater)){[weak self] result in
+        LeagueRepositoryImpl.shared.getLeagueEvents(sport: sport, leagueId: leagueId, from: getFormattedDate(date: today), to: getFormattedDate(date: eightMonthsLater)){[weak self] result in
             switch result {
             case .success(let response):
-//                print("getUpcomingDetails: \(response)")
                 self?.view.showUpcomingEvents(events: response.result)
             case .failure(let failure):
                 print(failure.localizedDescription)
@@ -50,10 +49,10 @@ class LeagueDetailsPresenterImpl: LeagueDetailsPresenter{
     
     func getLatestResults(of sport: Sport, for leagueId: String) {
         let calendar = Calendar.current
-        let today = Date()
-        let aWeekBefore = calendar.date(byAdding: .day, value: -7, to: today)!
+        let aDayBefore = calendar.date(byAdding: .day, value: -1, to: Date())!
+        let aWeekBefore = calendar.date(byAdding: .day, value: -7, to: aDayBefore)!
         
-        LeagueRepositoryImpl.shared.getLeagueEvents(sport: sport, leagueId: leagueId, from: getFormattedDate(date: aWeekBefore), to: getFormattedDate(date: today)){[weak self] result in
+        LeagueRepositoryImpl.shared.getLeagueEvents(sport: sport, leagueId: leagueId, from: getFormattedDate(date: aWeekBefore), to: getFormattedDate(date: aDayBefore)){[weak self] result in
             switch result {
             case .success(let response):
 //                print("getLatestResults: \(response)")

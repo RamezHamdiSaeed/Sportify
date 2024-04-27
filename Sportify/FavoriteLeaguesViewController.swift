@@ -23,7 +23,7 @@ class FavoriteLeaguesViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        favoriteTableView.reloadData()
+        favoriteTableView.reloadData()
     }
     
     func updateData(leagues: [League]) {
