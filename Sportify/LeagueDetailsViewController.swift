@@ -12,24 +12,36 @@ class LeagueDetailsViewController: UIViewController{
     
     var presenter: LeagueDetailsPresenter!
     @IBOutlet var detailsCollectionView: UICollectionView!
+    @IBOutlet var favButton: UIBarButtonItem!
+    
     var upcomingEvents = [Event]()
     var latestEvents = [Event]()
     var teams = [Team]()
     var league: League!
+    var isFavorite = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = LeagueDetailsPresenterImpl(view: self)
         setupCollectionView()
         getData()
-
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupFavButton()
     }
     
     
     @IBAction func toggleFavPressed(_ sender: UIBarButtonItem) {
-        //Will check first if it is favorite or not
-        presenter.addToFav(league: league)
+        if isFavorite {
+            presenter.deleteFromFav(league: league)
+        }else{
+            presenter.addToFav(league: league)
+        }
+        isFavorite.toggle()
+        setupFavButton()
+        
     }
     
     private func setupCollectionView(){
@@ -54,6 +66,15 @@ class LeagueDetailsViewController: UIViewController{
             }
         }
         detailsCollectionView.setCollectionViewLayout(layout, animated: true)
+    }
+    
+    private func setupFavButton(){
+        isFavorite = presenter.isFav(league: league)
+        if isFavorite{
+            favButton.image = UIImage(systemName: "heart.fill")
+        }else{
+            favButton.image = UIImage(systemName: "heart")
+        }
     }
     
     
@@ -127,7 +148,7 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if AppCommon.shared.sport == .football && indexPath.section == 2 {
-            var destinationViewController = self.storyboard?.instantiateViewController(withIdentifier: "TeamDetailsTableViewController") as! TeamDetailsTableViewController
+            let destinationViewController = self.storyboard?.instantiateViewController(withIdentifier: "TeamDetailsTableViewController") as! TeamDetailsTableViewController
             destinationViewController.teamId = teams[indexPath.row].teamKey ?? 0
             self.navigationController?.pushViewController(destinationViewController, animated: true)
         }

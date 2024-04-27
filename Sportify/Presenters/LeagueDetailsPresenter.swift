@@ -17,6 +17,10 @@ protocol LeagueDetailsPresenter{
     
     func addToFav(league: League)
     
+    func deleteFromFav(league: League)
+    
+    func isFav(league: League)->Bool
+    
 }
 class LeagueDetailsPresenterImpl: LeagueDetailsPresenter{
    
@@ -84,5 +88,12 @@ class LeagueDetailsPresenterImpl: LeagueDetailsPresenter{
         LeagueRepositoryImpl.shared.insertLeagueToFav(league: league)
     }
     
+    func deleteFromFav(league: League) {
+        LeagueRepositoryImpl.shared.deleteLeagueToFav(league: league)
+    }
+    
+    func isFav(league: League)->Bool {
+        return LeagueRepositoryImpl.shared.isFav(league: league)
+    }
     
 }
