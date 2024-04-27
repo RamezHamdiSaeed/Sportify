@@ -59,14 +59,14 @@
         <!--Home View Controller-->
         <scene sceneID="Hhb-bs-aMj">
             <objects>
-                <viewController id="3RL-Du-1rS" customClass="HomeViewController" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="3RL-Du-1rS" customClass="HomeViewController" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uEf-MK-mcc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PLj-Zu-Dio">
-                                <rect key="frame" x="27" y="175" width="339" height="547"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="27" y="175" width="339" height="594"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tiX-lI-rUD">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -93,13 +93,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="PLj-Zu-Dio" firstAttribute="leading" secondItem="Ihv-l2-PaG" secondAttribute="leading" constant="27" id="5L1-ED-eZa"/>
-                            <constraint firstItem="Ihv-l2-PaG" firstAttribute="bottom" secondItem="PLj-Zu-Dio" secondAttribute="bottom" constant="47" id="HMF-6b-Ay2"/>
+                            <constraint firstItem="Ihv-l2-PaG" firstAttribute="bottom" secondItem="PLj-Zu-Dio" secondAttribute="bottom" id="HMF-6b-Ay2"/>
                             <constraint firstItem="PLj-Zu-Dio" firstAttribute="top" secondItem="Ihv-l2-PaG" secondAttribute="top" constant="72" id="Ts7-jx-0fl"/>
                             <constraint firstItem="PLj-Zu-Dio" firstAttribute="top" secondItem="Ihv-l2-PaG" secondAttribute="top" constant="72" id="VKN-mU-bfi"/>
                             <constraint firstItem="PLj-Zu-Dio" firstAttribute="leading" secondItem="Ihv-l2-PaG" secondAttribute="leading" constant="27" id="c5b-vT-tEL"/>
                             <constraint firstItem="PLj-Zu-Dio" firstAttribute="centerX" secondItem="Ihv-l2-PaG" secondAttribute="centerX" id="d96-PQ-bVc"/>
                             <constraint firstItem="Ihv-l2-PaG" firstAttribute="trailing" secondItem="PLj-Zu-Dio" secondAttribute="trailing" constant="27" id="jTj-dU-weS"/>
-                            <constraint firstItem="PLj-Zu-Dio" firstAttribute="centerY" secondItem="Ihv-l2-PaG" secondAttribute="centerY" constant="12.5" id="nec-1w-2Wu"/>
+                            <constraint firstItem="PLj-Zu-Dio" firstAttribute="centerY" secondItem="Ihv-l2-PaG" secondAttribute="centerY" constant="36" id="nec-1w-2Wu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AYE-Ak-LqK"/>
@@ -146,8 +146,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q0e-29-v6H">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" systemColor="systemTealColor"/>
-                        <color key="tintColor" systemColor="systemGray4Color"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" red="0.090903970100918052" green="0.42850502250120814" blue="0.077171506862218839" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
@@ -187,7 +187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w80-7p-3mw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="934" y="613"/>
+            <point key="canvasLocation" x="934" y="637"/>
         </scene>
         <!--Home-->
         <scene sceneID="IXv-yH-m43">
@@ -200,6 +200,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="M2S-NW-L6S">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.110191709" green="0.51942396660000001" blue="0.093545531779999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -216,12 +217,6 @@
         <image name="homekit" catalog="system" width="128" height="104"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

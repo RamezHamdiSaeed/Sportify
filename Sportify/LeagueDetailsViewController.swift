@@ -32,6 +32,8 @@ class LeagueDetailsViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         setupFavButton()
+        view.backgroundColor = .systemGray
+
     }
     
     

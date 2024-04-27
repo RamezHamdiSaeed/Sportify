@@ -14,7 +14,7 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        view.backgroundColor = .black
     }
 
     override func viewDidLoad() {
@@ -49,14 +49,15 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         let sportName = self.sports[indexPath.item].name
        cell.image.image = UIImage(named: sportImage)
         cell.sportName.text = sportName
+        cell.backgroundColor = .darkGray
         cell.layer.cornerRadius = 20
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.sportsCollectionView.frame.width/2, height: self.sportsCollectionView.frame.height)
+        return CGSize(width: self.sportsCollectionView.frame.width/2, height: 400)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 40
+        return 70
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
