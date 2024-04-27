@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class WelcomeViewController: UIViewController {
 
@@ -33,19 +34,25 @@ class WelcomeViewController: UIViewController {
             scrollView.addSubview(page)
             
             let label = UILabel(frame: CGRect(x: 10, y: 10, width: page.frame.size.width-20, height: 120))
-            let image = UIImageView(frame: CGRect(x: 10, y: 10+120+10, width: page.frame.size.width-20, height: page.frame.size.height-60-130))
+//            let image = UIImageView(frame: CGRect(x: 0, y: 0, width: page.frame.size.width, height: page.frame.size.height))
+            let animationView = LottieAnimationView()
+                    animationView.animation = LottieAnimation.named("olympic_\(x+1)")
+                    animationView.frame = CGRect(x: 0, y: 0, width: page.frame.size.width, height: page.frame.size.height)
+                    animationView.loopMode = .loop
+                    view.addSubview(animationView)
+                    animationView.play()
+            
             let button = UIButton(frame: CGRect(x: 10, y: page.frame.size.height-60, width: page.frame.size.width-20, height: 50))
+            
+            
+            animationView.contentMode = .scaleAspectFit
+//            image.image = UIImage(named: "Welcome_\(x+1)")
+            page.addSubview(animationView)
             
             label.textAlignment = .center
             label.font = UIFont(name: "Helvetica-Bold", size: 32)
             label.text = titles[x]
             page.addSubview(label)
-
-            
-            
-            image.contentMode = .scaleAspectFit
-            image.image = UIImage(named: "Welcome_\(x+1)")
-            page.addSubview(image)
             
             button.setTitleColor(.white, for: .normal)
             button.backgroundColor = .black
