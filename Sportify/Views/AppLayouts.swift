@@ -59,7 +59,7 @@ class AppLayouts{
     
     static func getTeamsSection()-> NSCollectionLayoutSection{
         //w 168 h 200
-        let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(168), heightDimension: .fractionalHeight(1))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         

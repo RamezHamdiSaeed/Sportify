@@ -57,8 +57,10 @@ class TeamDetailsTableViewController: UITableViewController{
             cell.leagueImage.sd_setImage(with: URL(string: team[indexPath.row].teamLogo ?? ""), placeholderImage: UIImage(named: "AppIcon"))
             cell.leagueName.text = team[indexPath.row].teamName
         case 1:
+            var coachName = teamCoach[indexPath.row].coachName
+            if coachName == "" {coachName = "Unknown Coach"}
             cell.leagueImage.image = UIImage(systemName: "person.circle.fill")
-            cell.leagueName.text = teamCoach[indexPath.row].coachName
+            cell.leagueName.text = coachName
         default:
             cell.leagueImage.sd_setImage(with: URL(string: teamPlayers[indexPath.row].playerImage ?? ""), placeholderImage: UIImage(systemName: "person.circle.fill"))
             cell.leagueName.text = teamPlayers[indexPath.row].playerName

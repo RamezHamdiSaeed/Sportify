@@ -12,6 +12,7 @@ class LeagueDetailsViewController: UIViewController{
     
     var presenter: LeagueDetailsPresenter!
     @IBOutlet var detailsCollectionView: UICollectionView!
+    
     @IBOutlet var favButton: UIBarButtonItem!
     
     var upcomingEvents = [Event]()
@@ -153,6 +154,9 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
             self.navigationController?.pushViewController(destinationViewController, animated: true)
         }
     }
+    
+   
+
     
 }
 
