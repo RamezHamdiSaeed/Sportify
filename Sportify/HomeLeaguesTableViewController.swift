@@ -14,12 +14,16 @@ class HomeLeaguesTableViewController: UITableViewController ,HomeLeaguesView{
     
     var leaguesNetwork : [League] = [League]()
     var sportChosen : Sport! = nil
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        view.backgroundColor = UIColor(named: "backgroundColor")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "LeagueTableViewCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "homeSportLeague")
-        
-        //        leaguesNetwork = GetLeaguesRepo(remoteDataSource: FetchLeaguesNetwork()).getLeaguesNetwork(sport: sportChosen)
         HomeLeaguesPresenter.getLeaguesFromNetwork(of: sportChosen, tableViewToBeRefreshed: self)
     }
     
@@ -43,13 +47,14 @@ class HomeLeaguesTableViewController: UITableViewController ,HomeLeaguesView{
         let title:String = (self.leaguesNetwork[indexPath.item].leagueName ?? self.leaguesNetwork[indexPath.item].countryName) ?? "UnKnown"
         
         cell.leagueName?.text = title
+        cell.backgroundColor = UIColor(named: "btn_cells_tabBar")
         
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 70
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -63,7 +68,6 @@ class HomeLeaguesTableViewController: UITableViewController ,HomeLeaguesView{
     
     func updateData(leagues: Leagues) {
         leaguesNetwork = leagues.result ?? [League]()
-        print("$$$$$$$$$$$$$$$$$$$$$$$$$$\(leagues)")
         self.tableView.reloadData()
     }
 

@@ -23,6 +23,7 @@ class FavoriteLeaguesViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        view.backgroundColor = UIColor(named: "backgroundColor")
         favoriteTableView.reloadData()
     }
     
@@ -56,10 +57,21 @@ class FavoriteLeaguesViewController: UIViewController, UITableViewDelegate, UITa
     }
    
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 70
     }
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //navigate to the first view controller in the Details Story Board
+    }
+     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            FavoriteLeaguesPresenter.deleteLeagueFromFav(league: FavoriteLeaguesPresenter.leaguesDB[indexPath.item])
+
+            FavoriteLeaguesPresenter.leaguesDB.remove(at: indexPath.item)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
     }
 
 

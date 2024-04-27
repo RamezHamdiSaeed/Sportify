@@ -16,24 +16,30 @@
                 <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iwN-VD-yrC">
-                        <rect key="frame" x="8" y="15" width="78" height="70"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="78" id="90F-2d-kla"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsK-GQ-wSJ">
                         <rect key="frame" x="115" y="39.666666666666664" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iwN-VD-yrC">
+                        <rect key="frame" x="8" y="11" width="78" height="78"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="78" id="90F-2d-kla"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="100"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
                 </subviews>
+                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="qsK-GQ-wSJ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2h4-SV-W07"/>
-                    <constraint firstAttribute="bottom" secondItem="iwN-VD-yrC" secondAttribute="bottom" constant="15" id="TX5-Cl-Kzi"/>
+                    <constraint firstAttribute="bottom" secondItem="iwN-VD-yrC" secondAttribute="bottom" constant="7" id="TX5-Cl-Kzi"/>
                     <constraint firstItem="iwN-VD-yrC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="UWr-Ov-1qv"/>
-                    <constraint firstItem="iwN-VD-yrC" firstAttribute="centerY" secondItem="qsK-GQ-wSJ" secondAttribute="centerY" id="jzD-pr-W73"/>
+                    <constraint firstItem="iwN-VD-yrC" firstAttribute="centerY" secondItem="qsK-GQ-wSJ" secondAttribute="centerY" constant="3.8333333333333357" id="jzD-pr-W73"/>
                     <constraint firstItem="qsK-GQ-wSJ" firstAttribute="leading" secondItem="iwN-VD-yrC" secondAttribute="trailing" constant="29" id="sAm-sf-3g9"/>
                 </constraints>
             </tableViewCellContentView>
