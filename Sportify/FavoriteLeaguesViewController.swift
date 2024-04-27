@@ -21,6 +21,11 @@ class FavoriteLeaguesViewController: UIViewController, UITableViewDelegate, UITa
         FavoriteLeaguesPresenter.setupView(tableViewToBeRefreshed: self)
         FavoriteLeaguesPresenter.getLeaguesFromFav() 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        favoriteTableView.reloadData()
+    }
+    
     func updateData(leagues: [League]) {
         FavoriteLeaguesPresenter.leaguesDB = leagues
         favoriteTableView.reloadData()

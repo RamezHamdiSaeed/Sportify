@@ -28,6 +28,7 @@ protocol LeagueRepository{
     func getLeaguesFromFav()->[League]
     func insertLeagueToFav(league: League)
     func deleteLeagueToFav(league: League)
+    func isFav(league: League) -> Bool
 }
 
 class LeagueRepositoryImpl: LeagueRepository{
@@ -60,7 +61,12 @@ class LeagueRepositoryImpl: LeagueRepository{
     }
     
     func deleteLeagueToFav(league: League) {
+        LocalDataSourceImpl.shared.deleteLeagueToFav(league: league)
         
+    }
+    
+    func isFav(league: League) -> Bool{
+        return LocalDataSourceImpl.shared.isFav(league: league)
     }
     
     

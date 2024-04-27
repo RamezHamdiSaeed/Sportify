@@ -14,7 +14,7 @@ class LocalDataSourceImpl : LocalDataSource{
     
     public static let shared = LocalDataSourceImpl()
     private var leagues = [LeaguesDB]()
-
+    
     
     let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
@@ -22,7 +22,7 @@ class LocalDataSourceImpl : LocalDataSource{
         do{
             leagues = try context!.fetch(LeaguesDB.fetchRequest())
             return prepareData()
-
+            
         }catch{
             print("error happened while retireving the data over the dataBase")
             return [League]()
@@ -44,13 +44,25 @@ class LocalDataSourceImpl : LocalDataSource{
         }
         catch{
             print("error happened while retireving the data over the dataBase")
-
+            
         }
     }
     
     func deleteLeagueToFav(league: League) {
-        
+        if let index = leagues.firstIndex(where: { $0.leagueKey == league.leagueKey ?? -1 }) {
+            context?.delete(leagues[index])
+            do {
+                try context?.save()
+            } catch {
+                print("Error occurred while deleting data from the database")
+            }
+        }
     }
+    
+    func isFav(league: League) -> Bool {
+        return leagues.contains(where: { $0.leagueKey == league.leagueKey ?? -1 })
+    }
+    
     
     func prepareData()->[League]{
         

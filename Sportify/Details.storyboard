@@ -57,6 +57,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="detailsCollectionView" destination="hzu-3B-Hfb" id="7wI-PN-6ln"/>
+                        <outlet property="favButton" destination="JEc-Oj-Gi1" id="ZYX-hg-gSS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
