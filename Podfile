@@ -9,5 +9,6 @@ target 'Sportify' do
 pod 'SDWebImage'
 pod 'Alamofire'
 pod 'NVActivityIndicatorView'
+pod 'lottie-ios'
 use_frameworks!
 end
