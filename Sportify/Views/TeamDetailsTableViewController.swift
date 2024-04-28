@@ -54,7 +54,7 @@ class TeamDetailsTableViewController: UITableViewController{
         
         switch indexPath.section {
         case 0:
-            cell.leagueImage.sd_setImage(with: URL(string: team[indexPath.row].teamLogo ?? ""), placeholderImage: UIImage(named: "AppIcon"))
+            cell.leagueImage.sd_setImage(with: URL(string: team[indexPath.row].teamLogo ?? ""), placeholderImage: UIImage(named: "img_launcher"))
             cell.leagueName.text = team[indexPath.row].teamName
         case 1:
             var coachName = teamCoach[indexPath.row].coachName
@@ -89,16 +89,18 @@ class TeamDetailsTableViewController: UITableViewController{
         header.textLabel?.textColor = UIColor(red: 0.3686, green: 0.9843, blue: 0.6314, alpha: 1.0)
     }
     func addActivityIndecator(){
-            activityIndicatorView = NVActivityIndicatorView(frame: .zero, type: .ballScale, color: UIColor(named: "Green"), padding: nil)
-            
-            view.addSubview(activityIndicatorView)
-            
-            activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                activityIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                activityIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-            ])
-            activityIndicatorView.startAnimating()
+        activityIndicatorView = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50), type: .ballRotateChase, color: UIColor(named: "Green"), padding: nil)
+        
+        view.addSubview(activityIndicatorView)
+        
+        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            activityIndicatorView.centerXAnchor.constraint(equalTo: tableView.centerXAnchor, constant: 0.0),
+            activityIndicatorView.centerYAnchor.constraint(equalTo: tableView.centerYAnchor, constant: 0.0)
+        ])
+        view.bringSubviewToFront(activityIndicatorView)
+        
+        activityIndicatorView.startAnimating()
         }
 
 

@@ -53,7 +53,10 @@ class FavoriteLeaguesViewController: UIViewController, UITableViewDelegate, UITa
         cell.leagueImage.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named:
                                                                                                 "AppIcon"))
 
-        let title:String = (FavoriteLeaguesPresenter.leaguesDB[indexPath.row].leagueName ?? FavoriteLeaguesPresenter.leaguesDB[indexPath.row].countryName) ?? "UnKnown"
+
+        cell.leagueImage.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "img_launcher"))
+
+        let title:String = (FavoriteLeaguesPresenter.leaguesDB[indexPath.item].leagueName ?? FavoriteLeaguesPresenter.leaguesDB[indexPath.item].countryName) ?? "UnKnown"
 
         cell.leagueName?.text = title
         
@@ -81,7 +84,6 @@ class FavoriteLeaguesViewController: UIViewController, UITableViewDelegate, UITa
             let leagueToBeRemoved = FavoriteLeaguesPresenter.leaguesDB[index]
             print("index is $$$$$$$$ ::::::\(index)")
             FavoriteLeaguesPresenter.deleteLeagueFromFav(league: leagueToBeRemoved)
-//            FavoriteLeaguesPresenter.leaguesDB.remove(at: index)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
         }

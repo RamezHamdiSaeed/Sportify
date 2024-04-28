@@ -163,8 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				04BE4E032BD6A1CB001853A8 /* RemoteDataSource.swift */,
-				04BE4E6F2BDA4660001853A8 /* APIRouter.swift */,
 				04BE4E732BDA46C3001853A8 /* RemoteDataSourceImpl.swift */,
+				04BE4E6F2BDA4660001853A8 /* APIRouter.swift */,
 				04BE4E752BDA46F5001853A8 /* NetworkError.swift */,
 			);
 			path = NetworkLayer;

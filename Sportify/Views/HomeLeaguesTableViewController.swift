@@ -45,7 +45,7 @@ class HomeLeaguesTableViewController: UITableViewController ,HomeLeaguesView{
         let cell = tableView.dequeueReusableCell(withIdentifier: "homeSportLeague", for: indexPath) as! LeagueTableViewCell
         let imageUrl = (self.leaguesNetwork[indexPath.item].leagueLogo ?? self.leaguesNetwork[indexPath.item].countryLogo) ?? "UnKnown"
         
-        cell.leagueImage.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "AppIcon"))
+        cell.leagueImage.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "img_launcher"))
         
         let title:String = (self.leaguesNetwork[indexPath.item].leagueName ?? self.leaguesNetwork[indexPath.item].countryName) ?? "UnKnown"
         
@@ -70,22 +70,21 @@ class HomeLeaguesTableViewController: UITableViewController ,HomeLeaguesView{
     }
     
     func updateData(leagues: Leagues) {
-        activityIndicatorView.startAnimating()
+        activityIndicatorView.stopAnimating()
         leaguesNetwork = leagues.result ?? [League]()
         self.tableView.reloadData()
     }
     
     func addActivityIndecator() {
-        activityIndicatorView = NVActivityIndicatorView(frame: .zero, type: .ballScale, color: UIColor(named: "Green"), padding: nil)
+        activityIndicatorView = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50), type: .ballRotateChase, color: UIColor(named: "Green"), padding: nil)
         
         view.addSubview(activityIndicatorView)
         
         activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            activityIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            activityIndicatorView.centerXAnchor.constraint(equalTo: tableView.centerXAnchor, constant: 0.0),
+            activityIndicatorView.centerYAnchor.constraint(equalTo: tableView.centerYAnchor, constant: 0.0)
         ])
-        
         view.bringSubviewToFront(activityIndicatorView)
         
         activityIndicatorView.startAnimating()

@@ -20,7 +20,21 @@ class RemoteDataSourceImpl: RemoteDataSource {
                     completion(.success(model))
                     break
                 case .failure(let error):
-                    print("Error: \(error.localizedDescription)")
+                    print(error.localizedDescription)
+                    do {
+                        guard let data = response.data else {
+                            completion(.failure(.other))
+                            return
+                        }
+                        let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        if let message = (json as? [String: Any])?["Message"] as? String {
+                            completion(.failure(.networkError(message: message)))
+                        } else {
+                            completion(.failure(.networkError(message: error.localizedDescription)))
+                        }
+                    } catch {
+                        completion(.failure(.networkError(message: error.localizedDescription)))
+                    }
                     break
                 }
             }
