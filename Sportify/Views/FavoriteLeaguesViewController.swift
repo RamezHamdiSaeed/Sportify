@@ -46,7 +46,7 @@ class FavoriteLeaguesViewController: UIViewController, UITableViewDelegate, UITa
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteSportLeague", for: indexPath) as! LeagueTableViewCell
         let imageUrl = (FavoriteLeaguesPresenter.leaguesDB[indexPath.item].leagueLogo ?? FavoriteLeaguesPresenter.leaguesDB[indexPath.item].countryLogo) ?? "UnKnown"
 
-        cell.leagueImage.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "AppIcon"))
+        cell.leagueImage.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "img_launcher"))
 
         let title:String = (FavoriteLeaguesPresenter.leaguesDB[indexPath.item].leagueName ?? FavoriteLeaguesPresenter.leaguesDB[indexPath.item].countryName) ?? "UnKnown"
 
@@ -66,7 +66,6 @@ class FavoriteLeaguesViewController: UIViewController, UITableViewDelegate, UITa
         if editingStyle == .delete {
             // Delete the row from the data source
             FavoriteLeaguesPresenter.deleteLeagueFromFav(league: FavoriteLeaguesPresenter.leaguesDB[indexPath.item])
-
             FavoriteLeaguesPresenter.leaguesDB.remove(at: indexPath.item)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
