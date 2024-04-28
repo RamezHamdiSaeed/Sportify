@@ -152,33 +152,9 @@
 				04BE4CC12BCED5E9001853A8 /* NetworkLayer */,
 				04BE4CAA2BCED5AB001853A8 /* AppDelegate.swift */,
 				04BE4CAC2BCED5AB001853A8 /* SceneDelegate.swift */,
-				04BE4CB02BCED5AB001853A8 /* Main.storyboard */,
 				04BE4CB62BCED5AE001853A8 /* Assets.xcassets */,
-				04BE4CB82BCED5AE001853A8 /* LaunchScreen.storyboard */,
 				04BE4CBB2BCED5AE001853A8 /* Info.plist */,
-				04BE4E012BD6A1AE001853A8 /* LocalDataSource.swift */,
-				04BE4E032BD6A1CB001853A8 /* RemoteDataSource.swift */,
-				04BE4E052BD6A1EE001853A8 /* TeamRepository.swift */,
-				04BE4E072BD6A233001853A8 /* League.swift */,
 				04BE4CB32BCED5AB001853A8 /* Sportify.xcdatamodeld */,
-				04BE4E092BD6A8DC001853A8 /* Details.storyboard */,
-				04BE4E112BD6AD44001853A8 /* LeagueRepository.swift */,
-				1E18AD142BD720CB00684B71 /* OnBoardingPage.swift */,
-				1E8029092BD85ABA00BA9EB4 /* WelcomeViewController.swift */,
-				1E0574D02BD9A256009E71C8 /* HomeViewController.swift */,
-				1E0574D42BD9A4C0009E71C8 /* FavoriteLeaguesViewController.swift */,
-				1E0574D62BD9A604009E71C8 /* Sport.swift */,
-				1EA302702BDA196700D44BAE /* SportCollectionViewCell.swift */,
-				1EA302712BDA196700D44BAE /* sportCollectionViewCell.xib */,
-				04BE4E772BDA4BB9001853A8 /* LeagueDetailsViewController.swift */,
-				04BE4E792BDA4C58001853A8 /* TeamDetailsTableViewController.swift */,
-				04BE4E7F2BDA4CC6001853A8 /* LeagueDetailsCollectionViewCell.swift */,
-				04BE4E802BDA4CC6001853A8 /* LeagueDetailsCollectionViewCell.xib */,
-				1E74F92B2BDA63E800D8B60C /* HomeLeaguesTableViewController.swift */,
-				1E01E4E32BDABB1300383263 /* LeagueTableViewCell.swift */,
-				1E01E4E42BDABB1300383263 /* LeagueTableViewCell.xib */,
-				1EEEEEFC2BDC3B7C00EECE46 /* HomeLeaguesPresenter.swift */,
-				1EEEEEFE2BDC3BE700EECE46 /* FavoriteLeaguesPresenter.swift */,
 			);
 			path = Sportify;
 			sourceTree = "<group>";
@@ -186,6 +162,7 @@
 		04BE4CC12BCED5E9001853A8 /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				04BE4E032BD6A1CB001853A8 /* RemoteDataSource.swift */,
 				04BE4E6F2BDA4660001853A8 /* APIRouter.swift */,
 				04BE4E732BDA46C3001853A8 /* RemoteDataSourceImpl.swift */,
 				04BE4E752BDA46F5001853A8 /* NetworkError.swift */,
@@ -196,6 +173,12 @@
 		04BE4EC02BDBA8CA001853A8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1E18AD142BD720CB00684B71 /* OnBoardingPage.swift */,
+				04BE4E012BD6A1AE001853A8 /* LocalDataSource.swift */,
+				04BE4E052BD6A1EE001853A8 /* TeamRepository.swift */,
+				04BE4E072BD6A233001853A8 /* League.swift */,
+				04BE4E112BD6AD44001853A8 /* LeagueRepository.swift */,
+				1E0574D62BD9A604009E71C8 /* Sport.swift */,
 				04BE4EC22BDBA914001853A8 /* EventsResponse.swift */,
 				04BE4EC12BDBA914001853A8 /* Teams.swift */,
 				1E91C0432BDC033D00409B4D /* Players.swift */,
@@ -206,24 +189,41 @@
 		04BE4EC52BDBA94B001853A8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				04BE4CB02BCED5AB001853A8 /* Main.storyboard */,
+				04BE4CB82BCED5AE001853A8 /* LaunchScreen.storyboard */,
+				04BE4E092BD6A8DC001853A8 /* Details.storyboard */,
+				1E0574D02BD9A256009E71C8 /* HomeViewController.swift */,
+				1E8029092BD85ABA00BA9EB4 /* WelcomeViewController.swift */,
+				1E0574D42BD9A4C0009E71C8 /* FavoriteLeaguesViewController.swift */,
+				04BE4E772BDA4BB9001853A8 /* LeagueDetailsViewController.swift */,
+				04BE4E792BDA4C58001853A8 /* TeamDetailsTableViewController.swift */,
+				1E74F92B2BDA63E800D8B60C /* HomeLeaguesTableViewController.swift */,
 				04BE4EC72BDBAB93001853A8 /* AppLayouts.swift */,
-				04BE4EC62BDBAB75001853A8 /* Cell */,
+				04BE4EC62BDBAB75001853A8 /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		04BE4EC62BDBAB75001853A8 /* Cell */ = {
+		04BE4EC62BDBAB75001853A8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				1EA302702BDA196700D44BAE /* SportCollectionViewCell.swift */,
+				1EA302712BDA196700D44BAE /* sportCollectionViewCell.xib */,
+				04BE4E7F2BDA4CC6001853A8 /* LeagueDetailsCollectionViewCell.swift */,
+				04BE4E802BDA4CC6001853A8 /* LeagueDetailsCollectionViewCell.xib */,
+				1E01E4E32BDABB1300383263 /* LeagueTableViewCell.swift */,
+				1E01E4E42BDABB1300383263 /* LeagueTableViewCell.xib */,
 				04BE4EC92BDBABA2001853A8 /* TeamsCollectionViewCell.swift */,
 				04BE4ECA2BDBABA3001853A8 /* TeamsCollectionViewCell.xib */,
 			);
-			path = Cell;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		04BE4ECD2BDBAD91001853A8 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				1EEEEEFC2BDC3B7C00EECE46 /* HomeLeaguesPresenter.swift */,
+				1EEEEEFE2BDC3BE700EECE46 /* FavoriteLeaguesPresenter.swift */,
 				04BE4ECE2BDBB18D001853A8 /* LeagueDetailsPresenter.swift */,
 				04BE4ED22BDC39BE001853A8 /* TeamDetailsPresenter.swift */,
 			);

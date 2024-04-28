@@ -7,6 +7,9 @@
 
 import Foundation
 
+protocol TeamDetailsView{
+    func showTeamDetails(_ teamOfPlayers: [TeamOfPlayers])
+}
 
 class TeamDetailsPresenter{
     

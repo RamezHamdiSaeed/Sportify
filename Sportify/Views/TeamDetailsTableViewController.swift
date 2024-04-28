@@ -8,9 +8,6 @@
 import UIKit
 import NVActivityIndicatorView
 
-protocol TeamDetailsView{
-    func showTeamDetails(_ teamOfPlayers: [TeamOfPlayers])
-}
 
 class TeamDetailsTableViewController: UITableViewController{
 
@@ -25,6 +22,7 @@ class TeamDetailsTableViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addActivityIndecator()
         presenter = TeamDetailsPresenter()
         presenter.attachView(view: self)
         presenter.getTeamInfo(of: .football, for: String(teamId))
