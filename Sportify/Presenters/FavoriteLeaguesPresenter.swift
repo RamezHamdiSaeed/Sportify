@@ -21,6 +21,7 @@ class FavoriteLeaguesPresenter{
     }
     static func getLeaguesFromFav() {
         self.tableViewToBeRefreshed?.updateData(leagues: LeagueRepositoryImpl.shared.getLeaguesFromFav())
+        print(LeagueRepositoryImpl.shared.getLeaguesFromFav())
     }
     static func deleteLeagueFromFav(league:League){
         LeagueRepositoryImpl.shared.deleteLeagueToFav(league: league)
