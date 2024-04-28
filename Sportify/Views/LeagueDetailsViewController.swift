@@ -88,15 +88,17 @@ class LeagueDetailsViewController: UIViewController{
     }
     
     private func addActivityIndecator(){
-        activityIndicatorView = NVActivityIndicatorView(frame: .zero, type: .ballScale, color: UIColor(named: "Green"), padding: nil)
+        activityIndicatorView = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50), type: .ballRotateChase, color: UIColor(named: "Green"), padding: nil)
         
         view.addSubview(activityIndicatorView)
         
         activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            activityIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            activityIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0.0),
+            activityIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0.0)
         ])
+        view.bringSubviewToFront(activityIndicatorView)
+        
         activityIndicatorView.startAnimating()
     }
     
@@ -129,9 +131,9 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
                 
             }else{
                 cell.firstTeamNameLabel.text = cellData.eventHomeTeam ?? "Team name"
-                cell.firstTeamLogo.sd_setImage(with: URL(string: cellData.eventHomeTeamLogo ?? ""), placeholderImage: UIImage(named: "AppIcon"))
+                cell.firstTeamLogo.sd_setImage(with: URL(string: cellData.eventHomeTeamLogo ?? ""), placeholderImage: UIImage(named: "img_launcher"))
                 cell.secondTeamNameLabel.text = cellData.eventAwayTeam ?? "Team name"
-                cell.secondTeamLogo.sd_setImage(with: URL(string: cellData.eventAwayTeamLogo ?? ""), placeholderImage: UIImage(named: "AppIcon"))
+                cell.secondTeamLogo.sd_setImage(with: URL(string: cellData.eventAwayTeamLogo ?? ""), placeholderImage: UIImage(named: "img_launcher"))
 
             }
             cell.timeLabel.text = cellData.eventTime ?? ""
@@ -147,9 +149,9 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailsCell", for: indexPath) as? LeagueDetailsCollectionViewCell else {fatalError("Unable deque cell...")}
             let cellData = latestEvents[indexPath.row]
             cell.firstTeamNameLabel.text = cellData.eventHomeTeam ?? "Team name"
-            cell.firstTeamLogo.sd_setImage(with: URL(string: cellData.eventHomeTeamLogo ?? ""), placeholderImage: UIImage(named: "AppIcon"))
+            cell.firstTeamLogo.sd_setImage(with: URL(string: cellData.eventHomeTeamLogo ?? ""), placeholderImage: UIImage(named: "img_launcher"))
             cell.secondTeamNameLabel.text = cellData.eventAwayTeam ?? "Team name"
-            cell.secondTeamLogo.sd_setImage(with: URL(string: cellData.eventAwayTeamLogo ?? ""), placeholderImage: UIImage(named: "AppIcon"))
+            cell.secondTeamLogo.sd_setImage(with: URL(string: cellData.eventAwayTeamLogo ?? ""), placeholderImage: UIImage(named: "img_launcher"))
             cell.timeLabel.text = cellData.eventTime ?? ""
             if let date = cellData.eventDate{
                 cell.dateLabel.text = reformateDate(date)
@@ -163,7 +165,7 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "teamCell", for: indexPath) as? TeamsCollectionViewCell else {fatalError("Unable deque cell...")}
             let team = teams[indexPath.row]
             cell.nameLabel.text = team.teamName
-            cell.teamLogo.sd_setImage(with: URL(string: team.teamLogo ?? ""), placeholderImage: UIImage(named: "AppIcon"))
+            cell.teamLogo.sd_setImage(with: URL(string: team.teamLogo ?? ""), placeholderImage: UIImage(named: "img_launcher"))
             return cell
         }
     }

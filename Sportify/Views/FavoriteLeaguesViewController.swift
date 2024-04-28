@@ -19,17 +19,17 @@ class FavoriteLeaguesViewController: UIViewController, UITableViewDelegate, UITa
         let nib = UINib(nibName: "LeagueTableViewCell", bundle: nil)
         self.favoriteTableView.register(nib, forCellReuseIdentifier: "favoriteSportLeague")
         FavoriteLeaguesPresenter.setupView(tableViewToBeRefreshed: self)
-        FavoriteLeaguesPresenter.getLeaguesFromFav() 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         view.backgroundColor = UIColor(named: "backgroundColor")
+        FavoriteLeaguesPresenter.getLeaguesFromFav() 
         favoriteTableView.reloadData()
     }
     
     func updateData(leagues: [League]) {
+        print(leagues.count)
         FavoriteLeaguesPresenter.leaguesDB = leagues
-        favoriteTableView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -38,15 +38,23 @@ class FavoriteLeaguesViewController: UIViewController, UITableViewDelegate, UITa
     }
 
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         print(FavoriteLeaguesPresenter.leaguesDB.count)
          return FavoriteLeaguesPresenter.leaguesDB.count
     }
 
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteSportLeague", for: indexPath) as! LeagueTableViewCell
-        let imageUrl = (FavoriteLeaguesPresenter.leaguesDB[indexPath.item].leagueLogo ?? FavoriteLeaguesPresenter.leaguesDB[indexPath.item].countryLogo) ?? "UnKnown"
+         let imageUrl = (FavoriteLeaguesPresenter.leaguesDB[indexPath.row].leagueLogo ?? FavoriteLeaguesPresenter.leaguesDB[indexPath.row].countryLogo) ?? "UnKnown"
+         print("image paths is $$$$$$$$$$$$$$:::::::\(FavoriteLeaguesPresenter.leaguesDB[indexPath.row].leagueLogo)")
+         
+         print("image paths is $$$$$$$$$$$$$$:::::::\(FavoriteLeaguesPresenter.leaguesDB[indexPath.row].countryLogo)")
+         
+        cell.leagueImage.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named:
+                                                                                                "AppIcon"))
 
-        cell.leagueImage.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "AppIcon"))
+
+        cell.leagueImage.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "img_launcher"))
 
         let title:String = (FavoriteLeaguesPresenter.leaguesDB[indexPath.item].leagueName ?? FavoriteLeaguesPresenter.leaguesDB[indexPath.item].countryName) ?? "UnKnown"
 
@@ -61,16 +69,23 @@ class FavoriteLeaguesViewController: UIViewController, UITableViewDelegate, UITa
     }
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //navigate to the first view controller in the Details Story Board
+         let storyboard = UIStoryboard(name: "Details", bundle: nil)
+         
+         if let destinationViewController = storyboard.instantiateViewController(withIdentifier: "LeagueDetailsViewController") as? LeagueDetailsViewController {
+             destinationViewController.league = FavoriteLeaguesPresenter.leaguesDB[indexPath.row]
+             navigationController?.pushViewController(destinationViewController, animated: true)
+         }
     }
      func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            FavoriteLeaguesPresenter.deleteLeagueFromFav(league: FavoriteLeaguesPresenter.leaguesDB[indexPath.item])
-
-            FavoriteLeaguesPresenter.leaguesDB.remove(at: indexPath.item)
+            
+            let index = indexPath.row
+            let leagueToBeRemoved = FavoriteLeaguesPresenter.leaguesDB[index]
+            print("index is $$$$$$$$ ::::::\(index)")
+            FavoriteLeaguesPresenter.deleteLeagueFromFav(league: leagueToBeRemoved)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
 

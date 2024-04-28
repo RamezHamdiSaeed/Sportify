@@ -10,5 +10,7 @@ pod 'SDWebImage'
 pod 'Alamofire'
 pod 'NVActivityIndicatorView'
 pod 'lottie-ios'
+pod 'SwiftMessages'
+
 use_frameworks!
 end

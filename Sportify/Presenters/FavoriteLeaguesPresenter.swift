@@ -14,13 +14,14 @@ protocol FavoriteLeaguesView{
 class FavoriteLeaguesPresenter{
     static var leaguesDB : [League] = [League]()
 
-    private static var tableViewToBeRefreshed: FavoriteLeaguesView? = nil
+    private static var tableViewToBeRefreshed: FavoriteLeaguesView!
     
     static func setupView(tableViewToBeRefreshed:FavoriteLeaguesView){
         self.tableViewToBeRefreshed = tableViewToBeRefreshed
     }
     static func getLeaguesFromFav() {
         self.tableViewToBeRefreshed?.updateData(leagues: LeagueRepositoryImpl.shared.getLeaguesFromFav())
+        print(LeagueRepositoryImpl.shared.getLeaguesFromFav())
     }
     static func deleteLeagueFromFav(league:League){
         LeagueRepositoryImpl.shared.deleteLeagueToFav(league: league)

@@ -12,7 +12,7 @@ protocol HomeLeaguesView{
 }
 
 class HomeLeaguesPresenter{
-    private static var tableViewToBeRefreshed: HomeLeaguesView? = nil
+    private static var tableViewToBeRefreshed: HomeLeaguesView!
     
     static func getLeaguesFromNetwork(of sport: Sport,tableViewToBeRefreshed:HomeLeaguesView) {
         self.tableViewToBeRefreshed = tableViewToBeRefreshed
