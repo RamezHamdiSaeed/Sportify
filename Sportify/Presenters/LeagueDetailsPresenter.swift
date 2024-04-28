@@ -7,26 +7,18 @@
 
 import Foundation
 
-protocol LeagueDetailsPresenter{
-    
-    func getUpcomingEvents(of sport: Sport, for leagueId: String)
-    
-    func getLatestResults(of sport: Sport, for leagueId: String)
-    
-    func getTeams(of sport: Sport, for leagueId: String)
-    
-    func addToFav(league: League)
-    
-    func deleteFromFav(league: League)
-    
-    func isFav(league: League)->Bool
-    
+protocol LeagueDetailsView{
+    func showUpcomingEvents(events: [Event]?)
+    func showLatestEvents(events: [Event]?)
+    func showTeams(teams: [Team]?)
 }
-class LeagueDetailsPresenterImpl: LeagueDetailsPresenter{
+
+
+class LeagueDetailsPresenter{
    
-    var view: LeagueDetailsView!
+    var view: LeagueDetailsView?
     
-    init(view: LeagueDetailsView){
+    func attachView(view: LeagueDetailsView){
         self.view = view
     }
     
@@ -39,7 +31,7 @@ class LeagueDetailsPresenterImpl: LeagueDetailsPresenter{
         LeagueRepositoryImpl.shared.getLeagueEvents(sport: sport, leagueId: leagueId, from: getFormattedDate(date: today), to: getFormattedDate(date: eightMonthsLater)){[weak self] result in
             switch result {
             case .success(let response):
-                self?.view.showUpcomingEvents(events: response.result)
+                self?.view?.showUpcomingEvents(events: response.result)
             case .failure(let failure):
                 print(failure.localizedDescription)
             }
@@ -56,7 +48,7 @@ class LeagueDetailsPresenterImpl: LeagueDetailsPresenter{
             switch result {
             case .success(let response):
 //                print("getLatestResults: \(response)")
-                self?.view.showLatestEvents(events: response.result)
+                self?.view?.showLatestEvents(events: response.result)
             case .failure(let failure):
                 print(failure.localizedDescription)
             }
@@ -69,7 +61,7 @@ class LeagueDetailsPresenterImpl: LeagueDetailsPresenter{
         switch result {
         case .success(let response):
 //            print("getTeams: \(response)")
-            self?.view.showTeams(teams: response.result)
+            self?.view?.showTeams(teams: response.result)
         case .failure(let failure):
             print(failure.localizedDescription)
         }

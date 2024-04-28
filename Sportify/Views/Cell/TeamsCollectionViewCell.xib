@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,11 +30,11 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team name " textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t58-nc-7YC">
                                 <rect key="frame" x="8" y="156" width="149" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.93725490196078431" green="0.92941176470588238" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="btn_cells_tabBar"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="jX3-Hg-r9P" secondAttribute="trailing" constant="5" id="6gq-VG-mEO"/>
                             <constraint firstItem="jX3-Hg-r9P" firstAttribute="top" secondItem="ros-fg-ztI" secondAttribute="top" constant="16" id="7d4-dJ-Saw"/>
@@ -65,4 +66,9 @@
             <point key="canvasLocation" x="130.53435114503816" y="72.183098591549296"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <namedColor name="btn_cells_tabBar">
+            <color red="0.16899999976158142" green="0.15700000524520874" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,14 +18,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SportifyIcon-removebg" highlightedImage="SportifyIcon-removebg" translatesAutoresizingMaskIntoConstraints="NO" id="UIf-3K-o6D">
-                                <rect key="frame" x="-53.666666666666657" y="176" width="500.33333333333326" height="500"/>
+                                <rect key="frame" x="46.666666666666657" y="276" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="1HM-Ky-uUg"/>
+                                    <constraint firstAttribute="width" constant="300" id="Uxd-dn-P5E"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
-                            <constraint firstItem="UIf-3K-o6D" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gED-c9-hof"/>
-                            <constraint firstItem="UIf-3K-o6D" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-12.5" id="hUc-KC-d70"/>
+                            <constraint firstItem="UIf-3K-o6D" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Hfn-e2-2Oy"/>
+                            <constraint firstItem="UIf-3K-o6D" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gt1-H2-Ai3"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -36,7 +41,7 @@
     <resources>
         <image name="SportifyIcon-removebg" width="500" height="500"/>
         <namedColor name="backgroundColor">
-            <color red="0.10196078431372549" green="0.086274509803921567" blue="0.090196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.10199999809265137" green="0.086000002920627594" blue="0.090000003576278687" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

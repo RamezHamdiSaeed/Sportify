@@ -42,7 +42,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier:"sportCell", for: indexPath) as! sportCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier:"sportCell", for: indexPath) as! SportCollectionViewCell
         cell.backgroundColor = .systemTeal
         let sportImage = self.sports[indexPath.item].image
         let sportName = self.sports[indexPath.item].name

@@ -24,7 +24,8 @@ class LeagueDetailsViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = LeagueDetailsPresenterImpl(view: self)
+        presenter = LeagueDetailsPresenter()
+        presenter.attachView(view: self)
         setupCollectionView()
         getData()
         

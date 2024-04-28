@@ -7,9 +7,6 @@
 
 import Foundation
 
-
-
-
 protocol LeagueRepository{
     
     func getLeaguesFromNetwork(of sport: Sport,

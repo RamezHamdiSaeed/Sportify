@@ -7,8 +7,3 @@
 
 import Foundation
 
-protocol LeagueDetailsView{
-    func showUpcomingEvents(events: [Event]?)
-    func showLatestEvents(events: [Event]?)
-    func showTeams(teams: [Team]?)
-}

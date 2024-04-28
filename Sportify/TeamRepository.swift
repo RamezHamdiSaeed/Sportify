@@ -13,3 +13,14 @@ protocol TeamRepository{
                          for teamId: String,
                          completion: @escaping (Result<PlayerResponse, NetworkError>) -> Void)
 }
+
+class TeamRepositoryImpl : TeamRepository{
+
+    static let shared = TeamRepositoryImpl()
+    private init(){}
+
+    func getTeamInfo(of sport: Sport, for teamId: String, completion: @escaping (Result<PlayerResponse, NetworkError>) -> Void) {
+        RemoteDataSourceImpl.getPlayers(of: sport, for: teamId, completion: completion)
+    }
+    
+}
