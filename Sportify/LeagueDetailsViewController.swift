@@ -7,11 +7,13 @@
 
 import UIKit
 import SDWebImage
+import NVActivityIndicatorView
 
 class LeagueDetailsViewController: UIViewController{
     
     var presenter: LeagueDetailsPresenter!
     @IBOutlet var detailsCollectionView: UICollectionView!
+    var activityIndicatorView: NVActivityIndicatorView!
     
     @IBOutlet var favButton: UIBarButtonItem!
     
@@ -24,6 +26,7 @@ class LeagueDetailsViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addActivityIndecator()
         presenter = LeagueDetailsPresenter()
         presenter.attachView(view: self)
         setupCollectionView()
@@ -56,7 +59,7 @@ class LeagueDetailsViewController: UIViewController{
         detailsCollectionView.register(nib, forCellWithReuseIdentifier: "detailsCell")
         nib = UINib(nibName: "TeamsCollectionViewCell", bundle: nil)
         detailsCollectionView.register(nib, forCellWithReuseIdentifier: "teamCell")
-        detailsCollectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SectionHeader")
+        detailsCollectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseIdentifier)
 
         configureCompositionalLayout()
     }
@@ -84,6 +87,18 @@ class LeagueDetailsViewController: UIViewController{
         }
     }
     
+    private func addActivityIndecator(){
+        activityIndicatorView = NVActivityIndicatorView(frame: .zero, type: .ballScale, color: UIColor(named: "Green"), padding: nil)
+        
+        view.addSubview(activityIndicatorView)
+        
+        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            activityIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        activityIndicatorView.startAnimating()
+    }
     
 }
 
@@ -162,18 +177,15 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as? SectionHeader else {
+        guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeader.reuseIdentifier, for: indexPath) as? SectionHeader else {
             fatalError("Failed to dequeue SectionHeaderView")
         }
         
-        headerView.sectionHeaderlabel.text = sectionTitles[indexPath.section]
+        headerView.tintColor = UIColor(red: 26/255, green: 22/255, blue: 23/255, alpha: 1.0)
+        headerView.titleLabel.text = sectionTitles[indexPath.section]
+        headerView.titleLabel.textColor = UIColor(red: 0.3686, green: 0.9843, blue: 0.6314, alpha: 1.0)
         
         return headerView
-    }
-
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 70)
     }
    
     
@@ -183,16 +195,25 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
 
 extension LeagueDetailsViewController: LeagueDetailsView{
     func showUpcomingEvents(events: [Event]?) {
+        if activityIndicatorView.isAnimating{
+            activityIndicatorView.stopAnimating()
+        }
         upcomingEvents = events?.reversed() ?? []
         detailsCollectionView.reloadData()
     }
     
     func showLatestEvents(events: [Event]?) {
+        if activityIndicatorView.isAnimating{
+            activityIndicatorView.stopAnimating()
+        }
         latestEvents = events ?? []
         detailsCollectionView.reloadData()
     }
     
     func showTeams(teams: [Team]?) {
+        if activityIndicatorView.isAnimating{
+            activityIndicatorView.stopAnimating()
+        }
         self.teams = teams ?? []
         detailsCollectionView.reloadData()
     }
@@ -221,4 +242,11 @@ extension LeagueDetailsViewController: LeagueDetailsView{
   
 
 }
+
+extension LeagueDetailsViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: 50)
+    }
+}
+
 

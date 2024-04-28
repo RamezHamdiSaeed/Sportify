@@ -41,6 +41,18 @@
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionHeader" id="KqR-Y4-ssr" customClass="SectionHeader" customModule="Sportify" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Section" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oD2-t5-LC5">
+                                            <rect key="frame" x="24" y="16" width="67" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="oD2-t5-LC5" firstAttribute="top" secondItem="KqR-Y4-ssr" secondAttribute="topMargin" constant="8" id="JsY-1A-MZ4"/>
+                                        <constraint firstItem="oD2-t5-LC5" firstAttribute="leading" secondItem="KqR-Y4-ssr" secondAttribute="leadingMargin" constant="16" id="rQU-zc-TbD"/>
+                                    </constraints>
                                 </collectionReusableView>
                             </collectionView>
                         </subviews>

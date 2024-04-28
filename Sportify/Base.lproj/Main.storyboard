@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wqF-R2-wAC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dhg-ZY-Sua">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -16,11 +16,11 @@
             <objects>
                 <viewController id="woT-jC-gPp" customClass="FavoriteLeaguesViewController" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rXS-e0-fY2">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5gg-YA-m8L">
-                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
                                 <color key="backgroundColor" name="backgroundColor"/>
                                 <color key="separatorColor" name="backgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" name="backgroundColor"/>
@@ -58,18 +58,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uJv-rP-tH6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1663" y="335"/>
+            <point key="canvasLocation" x="2588.5496183206105" y="334.50704225352115"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="Hhb-bs-aMj">
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" id="3RL-Du-1rS" customClass="HomeViewController" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uEf-MK-mcc">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PLj-Zu-Dio">
-                                <rect key="frame" x="27" y="175" width="339" height="594"/>
+                                <rect key="frame" x="27" y="128" width="339" height="675"/>
                                 <color key="backgroundColor" name="backgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tiX-lI-rUD">
                                     <size key="itemSize" width="128" height="128"/>
@@ -148,7 +148,8 @@
         <!--Tab Bar Controller-->
         <scene sceneID="ALh-sq-KvA">
             <objects>
-                <tabBarController id="wqF-R2-wAC" sceneMemberID="viewController">
+                <tabBarController modalPresentationStyle="fullScreen" id="wqF-R2-wAC" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="3V9-Kk-FLc"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q0e-29-v6H">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -180,7 +181,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gmB-e4-DCM"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
                             <constraint firstItem="gmB-e4-DCM" firstAttribute="bottom" secondItem="slc-R7-2ER" secondAttribute="bottom" id="F7Z-cN-qi1"/>
                             <constraint firstItem="slc-R7-2ER" firstAttribute="leading" secondItem="gmB-e4-DCM" secondAttribute="leading" id="ePm-mR-n1C"/>
@@ -188,13 +189,15 @@
                             <constraint firstItem="slc-R7-2ER" firstAttribute="top" secondItem="gmB-e4-DCM" secondAttribute="top" id="lnj-UP-ZMZ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="qrX-HJ-R37"/>
                     <connections>
                         <outlet property="viewHolder" destination="slc-R7-2ER" id="aIn-4W-K7F"/>
+                        <segue destination="wqF-R2-wAC" kind="show" identifier="welcomeToHome" id="whF-el-Nyj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w80-7p-3mw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="934" y="637"/>
+            <point key="canvasLocation" x="-144" y="819"/>
         </scene>
         <!--Home-->
         <scene sceneID="IXv-yH-m43">
@@ -205,7 +208,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="M2S-NW-L6S">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="backgroundColor"/>
                         <color key="tintColor" name="Green"/>

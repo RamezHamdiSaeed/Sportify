@@ -17,6 +17,7 @@ class LeagueTableViewCell: UITableViewCell {
         leagueImage.layer.cornerRadius = leagueImage.frame.width/2.0
         leagueImage.layer.masksToBounds = false
         leagueImage.clipsToBounds = true
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

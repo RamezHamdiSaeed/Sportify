@@ -7,10 +7,12 @@
 
 import UIKit
 import SDWebImage
+import NVActivityIndicatorView
+
 
 class HomeLeaguesTableViewController: UITableViewController ,HomeLeaguesView{
-
     
+    var activityIndicatorView: NVActivityIndicatorView!
     
     var leaguesNetwork : [League] = [League]()
     var sportChosen : Sport! = nil
@@ -22,6 +24,7 @@ class HomeLeaguesTableViewController: UITableViewController ,HomeLeaguesView{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addActivityIndecator()
         let nib = UINib(nibName: "LeagueTableViewCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "homeSportLeague")
         HomeLeaguesPresenter.getLeaguesFromNetwork(of: sportChosen, tableViewToBeRefreshed: self)
@@ -67,8 +70,25 @@ class HomeLeaguesTableViewController: UITableViewController ,HomeLeaguesView{
     }
     
     func updateData(leagues: Leagues) {
+        activityIndicatorView.startAnimating()
         leaguesNetwork = leagues.result ?? [League]()
         self.tableView.reloadData()
     }
-
+    
+    func addActivityIndecator() {
+        activityIndicatorView = NVActivityIndicatorView(frame: .zero, type: .ballScale, color: UIColor(named: "Green"), padding: nil)
+        
+        view.addSubview(activityIndicatorView)
+        
+        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            activityIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
+        view.bringSubviewToFront(activityIndicatorView)
+        
+        activityIndicatorView.startAnimating()
+    }
+    
 }

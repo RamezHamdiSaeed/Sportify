@@ -13,16 +13,17 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var viewHolder: UIView!
     let scrollView = UIScrollView()
 
-
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+        if !OnBoardingManager.shared.isNewuser() {
+            performSegue(withIdentifier: "welcomeToHome", sender: self)
+        }
         configure()
     }
     
     private func configure(){
         scrollView.frame = viewHolder.bounds
-        scrollView.backgroundColor = .black
+        scrollView.backgroundColor = UIColor(red: 26/255, green: 22/255, blue: 23/255, alpha: 1.0)
         viewHolder.addSubview(scrollView)
         let titles = ["Favorite Sports","Leagues and Matches"]
         for x in 0..<2 {
@@ -71,9 +72,8 @@ class WelcomeViewController: UIViewController {
 
     @objc func didTapButton(_ button:UIButton){
         guard button.tag < 2 else{
-            
             OnBoardingManager.shared.setIsNotNewUser()
-            dismiss(animated: true,completion: nil)
+            performSegue(withIdentifier: "welcomeToHome", sender: self)
             return
         }
         scrollView.setContentOffset(CGPoint(x: viewHolder.frame.size.width * CGFloat(button.tag), y: 0), animated: true)

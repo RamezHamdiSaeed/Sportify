@@ -21,15 +21,7 @@ class HomeViewController: UIViewController {
         let nib = UINib(nibName: "sportCollectionViewCell", bundle: nil)
         self.sportsCollectionView.register(nib, forCellWithReuseIdentifier: "sportCell")
     }
-    override func viewDidLayoutSubviews() {
-                if OnBoardingManager.shared.isNewuser(){
-                    let welcomeVC = self.storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
-                    welcomeVC.modalPresentationStyle = .fullScreen
-                    present(welcomeVC, animated: true)
-                }
-    }
     
-
 }
 
 
