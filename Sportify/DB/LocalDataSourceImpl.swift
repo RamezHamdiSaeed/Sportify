@@ -40,7 +40,6 @@ class LocalDataSourceImpl : LocalDataSource{
         
         do{
             try context?.save()
-            //don't forget to call the getLeaguesFromFav to update the data in the repository!!!!!!!
         }
         catch{
             print("error happened while retireving the data over the dataBase")
@@ -70,7 +69,7 @@ class LocalDataSourceImpl : LocalDataSource{
         
         for item in  0..<self.leagues.count{
             
-            let leagueItem = League(leagueKey: Int(self.leagues[item].leagueKey), leagueName: self.leagues[item].leagueName, countryKey: Int(self.leagues[item].countryKey), countryName: self.leagues[item].countryName, leagueLogo: self.leagues[item].leagueName, countryLogo: self.leagues[item].countryLogo)
+            let leagueItem = League(leagueKey: Int(self.leagues[item].leagueKey), leagueName: self.leagues[item].leagueName, countryKey: Int(self.leagues[item].countryKey), countryName: self.leagues[item].countryName, leagueLogo: self.leagues[item].leagueLogo, countryLogo: self.leagues[item].countryLogo)
             
             preparedLeagues.append(leagueItem)
         }

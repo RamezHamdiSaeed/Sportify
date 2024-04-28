@@ -46,8 +46,12 @@ class FavoriteLeaguesViewController: UIViewController, UITableViewDelegate, UITa
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteSportLeague", for: indexPath) as! LeagueTableViewCell
          let imageUrl = (FavoriteLeaguesPresenter.leaguesDB[indexPath.row].leagueLogo ?? FavoriteLeaguesPresenter.leaguesDB[indexPath.row].countryLogo) ?? "UnKnown"
-
-        cell.leagueImage.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "AppIcon"))
+         print("image paths is $$$$$$$$$$$$$$:::::::\(FavoriteLeaguesPresenter.leaguesDB[indexPath.row].leagueLogo)")
+         
+         print("image paths is $$$$$$$$$$$$$$:::::::\(FavoriteLeaguesPresenter.leaguesDB[indexPath.row].countryLogo)")
+         
+        cell.leagueImage.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named:
+                                                                                                "AppIcon"))
 
         let title:String = (FavoriteLeaguesPresenter.leaguesDB[indexPath.row].leagueName ?? FavoriteLeaguesPresenter.leaguesDB[indexPath.row].countryName) ?? "UnKnown"
 
@@ -62,6 +66,12 @@ class FavoriteLeaguesViewController: UIViewController, UITableViewDelegate, UITa
     }
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //navigate to the first view controller in the Details Story Board
+         let storyboard = UIStoryboard(name: "Details", bundle: nil)
+         
+         if let destinationViewController = storyboard.instantiateViewController(withIdentifier: "LeagueDetailsViewController") as? LeagueDetailsViewController {
+             destinationViewController.league = FavoriteLeaguesPresenter.leaguesDB[indexPath.row]
+             navigationController?.pushViewController(destinationViewController, animated: true)
+         }
     }
      func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
