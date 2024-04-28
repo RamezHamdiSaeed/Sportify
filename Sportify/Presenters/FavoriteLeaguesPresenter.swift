@@ -14,7 +14,7 @@ protocol FavoriteLeaguesView{
 class FavoriteLeaguesPresenter{
     static var leaguesDB : [League] = [League]()
 
-    private static var tableViewToBeRefreshed: FavoriteLeaguesView? = nil
+    private static var tableViewToBeRefreshed: FavoriteLeaguesView!
     
     static func setupView(tableViewToBeRefreshed:FavoriteLeaguesView){
         self.tableViewToBeRefreshed = tableViewToBeRefreshed
