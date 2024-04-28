@@ -21,15 +21,7 @@ class HomeViewController: UIViewController {
         let nib = UINib(nibName: "sportCollectionViewCell", bundle: nil)
         self.sportsCollectionView.register(nib, forCellWithReuseIdentifier: "sportCell")
     }
-    override func viewDidLayoutSubviews() {
-                if OnBoardingManager.shared.isNewuser(){
-                    let welcomeVC = self.storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
-                    welcomeVC.modalPresentationStyle = .fullScreen
-                    present(welcomeVC, animated: true)
-                }
-    }
     
-
 }
 
 
@@ -42,7 +34,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier:"sportCell", for: indexPath) as! sportCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier:"sportCell", for: indexPath) as! SportCollectionViewCell
         cell.backgroundColor = .systemTeal
         let sportImage = self.sports[indexPath.item].image
         let sportName = self.sports[indexPath.item].name

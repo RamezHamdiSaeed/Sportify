@@ -8,26 +8,28 @@
 import UIKit
 
 class SectionHeader: UICollectionReusableView {
-    var sectionHeaderlabel: UILabel!
-
+    static let reuseIdentifier = "CustomHeaderReuseIdentifier"
+    
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Title"
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupSectionHeaderLabel()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setupSectionHeaderLabel()
-    }
-
-    private func setupSectionHeaderLabel() {
-        sectionHeaderlabel = UILabel()
-        sectionHeaderlabel.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(sectionHeaderlabel)
-
+        addSubview(titleLabel)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            sectionHeaderlabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            sectionHeaderlabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            // Center titleLabel horizontally
+            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            // Center titleLabel vertically
+            titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

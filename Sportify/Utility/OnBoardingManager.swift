@@ -10,7 +10,6 @@ class OnBoardingManager{
     static let shared = OnBoardingManager()
     
     func isNewuser()->Bool{
-        
         return !UserDefaults.standard.bool(forKey: "isNewUser")
     }
     
