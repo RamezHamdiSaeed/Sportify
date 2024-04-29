@@ -11,6 +11,8 @@ pod 'Alamofire'
 pod 'NVActivityIndicatorView'
 pod 'lottie-ios'
 pod 'SwiftMessages'
+pod 'ReachabilitySwift'
+
 
 use_frameworks!
 end

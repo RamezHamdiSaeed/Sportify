@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		046922162BDF56960049125A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 046922152BDF56960049125A /* Assets.xcassets */; };
 		04BE4CAB2BCED5AB001853A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE4CAA2BCED5AB001853A8 /* AppDelegate.swift */; };
 		04BE4CAD2BCED5AB001853A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE4CAC2BCED5AB001853A8 /* SceneDelegate.swift */; };
 		04BE4CB22BCED5AB001853A8 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 04BE4CB12BCED5AB001853A8 /* Base */; };
 		04BE4CB52BCED5AB001853A8 /* Sportify.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04BE4CB32BCED5AB001853A8 /* Sportify.xcdatamodeld */; };
-		04BE4CB72BCED5AE001853A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BE4CB62BCED5AE001853A8 /* Assets.xcassets */; };
 		04BE4CBA2BCED5AE001853A8 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 04BE4CB92BCED5AE001853A8 /* Base */; };
 		04BE4E022BD6A1AE001853A8 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE4E012BD6A1AE001853A8 /* LocalDataSource.swift */; };
 		04BE4E042BD6A1CB001853A8 /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE4E032BD6A1CB001853A8 /* RemoteDataSource.swift */; };
@@ -57,12 +57,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		046922152BDF56960049125A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04BE4CA72BCED5AB001853A8 /* Sportify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sportify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BE4CAA2BCED5AB001853A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04BE4CAC2BCED5AB001853A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		04BE4CB12BCED5AB001853A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04BE4CB42BCED5AB001853A8 /* Sportify.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sportify.xcdatamodel; sourceTree = "<group>"; };
-		04BE4CB62BCED5AE001853A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04BE4CB92BCED5AE001853A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04BE4CBB2BCED5AE001853A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04BE4E012BD6A1AE001853A8 /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
@@ -152,8 +152,8 @@
 				04BE4CC12BCED5E9001853A8 /* NetworkLayer */,
 				04BE4CAA2BCED5AB001853A8 /* AppDelegate.swift */,
 				04BE4CAC2BCED5AB001853A8 /* SceneDelegate.swift */,
-				04BE4CB62BCED5AE001853A8 /* Assets.xcassets */,
 				04BE4CBB2BCED5AE001853A8 /* Info.plist */,
+				046922152BDF56960049125A /* Assets.xcassets */,
 				04BE4CB32BCED5AB001853A8 /* Sportify.xcdatamodeld */,
 			);
 			path = Sportify;
@@ -336,12 +336,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				04BE4E822BDA4CC6001853A8 /* LeagueDetailsCollectionViewCell.xib in Resources */,
-				04BE4CB72BCED5AE001853A8 /* Assets.xcassets in Resources */,
 				04BE4CBA2BCED5AE001853A8 /* Base in Resources */,
 				1EA302732BDA196700D44BAE /* sportCollectionViewCell.xib in Resources */,
 				04BE4ECC2BDBABA3001853A8 /* TeamsCollectionViewCell.xib in Resources */,
 				04BE4CB22BCED5AB001853A8 /* Base in Resources */,
 				04BE4E0A2BD6A8DC001853A8 /* Details.storyboard in Resources */,
+				046922162BDF56960049125A /* Assets.xcassets in Resources */,
 				1E01E4E62BDABB1300383263 /* LeagueTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -67,6 +67,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="KM2-ju-tCl">
                         <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="JEc-Oj-Gi1">
+                            <color key="tintColor" red="0.36862745099999999" green="0.98431372549999996" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="toggleFavPressed:" destination="Y6W-OH-hqX" id="bPS-NC-u74"/>
                             </connections>

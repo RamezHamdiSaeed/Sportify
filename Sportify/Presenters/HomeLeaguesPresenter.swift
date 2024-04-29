@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol HomeLeaguesView{
     func updateData(leagues:Leagues)
@@ -19,16 +20,12 @@ class HomeLeaguesPresenter{
         getLeagues(of: sport)
     }
     private static func getLeagues(of sport: Sport){
-        print("getting the leagues...")
         LeagueRepositoryImpl.shared.getLeaguesFromNetwork(of: sport){result in
             switch result{
             case .success(let leagues):
-                //your logic goes here
                 tableViewToBeRefreshed?.updateData(leagues: leagues)
-                    print(leagues)
             case .failure(let error):
-                //error handling here
-                print(error)
+                AppCommon.shared.showSimpleAlert(title: "Error", message: error.message, view: tableViewToBeRefreshed as! UIViewController)
             }
         }
     }

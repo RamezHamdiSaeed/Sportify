@@ -6,25 +6,46 @@
 //
 
 import UIKit
-import Network
+import Reachability
 
 class AppCommon{
+    
     public static let shared = AppCommon()
     var sport : Sport?
-    private init(){}
+    private let reachability = try! Reachability()
     
+    private init() {
+        startMonitoring()
+    }
     
-  
-    func isOnline()->Bool{
-        var online = false
-        var monitor: NWPathMonitor?
-        monitor = NWPathMonitor()
-        monitor?.pathUpdateHandler = {path in
-            online = (path.status == .satisfied)
+    private func startMonitoring() {
+        reachability.whenReachable = { _ in
+            print("Network is reachable")
+        }
+        reachability.whenUnreachable = { _ in
+            print("No Network!!")
         }
         
-        let queue = DispatchQueue(label: "NetworkMonitor")
-        monitor?.start(queue: queue)
-        return online
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
     }
+    
+    func isNetworkReachable() -> Bool {
+        return reachability.connection != .unavailable
+    }
+    
+    func showSimpleAlert(title: String = "Error", message: String, view: UIViewController, handler: (() -> Void)? = nil) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                    handler?()
+                }
+        alertController.addAction(okAction)
+        
+        view.present(alertController, animated: true, completion: nil)
+        
+    }
+    
 }

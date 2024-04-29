@@ -27,6 +27,5 @@ struct League: Codable {
         case countryName = "country_name"
         case leagueLogo = "league_logo"
         case countryLogo = "country_logo"
-
     }
 }

@@ -16,7 +16,6 @@ enum NetworkError: Error {
             return "Something went wrong"
         }
     }
-    
     case networkError(message: String)
     case other
 }

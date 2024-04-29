@@ -16,6 +16,7 @@ class LeagueDetailsViewController: UIViewController{
     var activityIndicatorView: NVActivityIndicatorView!
     
     @IBOutlet var favButton: UIBarButtonItem!
+    var placeholderLabel: UILabel!
     
     var sectionTitles = ["Upcoming Events", "Latest Results", "Teams"]
     var upcomingEvents = [Event]()
@@ -29,6 +30,7 @@ class LeagueDetailsViewController: UIViewController{
         addActivityIndecator()
         presenter = LeagueDetailsPresenter()
         presenter.attachView(view: self)
+        setupPlaceholderLabel()
         setupCollectionView()
         getData()
         
@@ -37,7 +39,7 @@ class LeagueDetailsViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         setupFavButton()
         view.backgroundColor = .systemGray
-
+        
     }
     
     
@@ -60,7 +62,7 @@ class LeagueDetailsViewController: UIViewController{
         nib = UINib(nibName: "TeamsCollectionViewCell", bundle: nil)
         detailsCollectionView.register(nib, forCellWithReuseIdentifier: "teamCell")
         detailsCollectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseIdentifier)
-
+        
         configureCompositionalLayout()
     }
     
@@ -102,6 +104,23 @@ class LeagueDetailsViewController: UIViewController{
         activityIndicatorView.startAnimating()
     }
     
+    private func setupPlaceholderLabel() {
+        placeholderLabel = UILabel()
+        placeholderLabel.text = "No items available"
+        placeholderLabel.textAlignment = .center
+        placeholderLabel.textColor = .gray
+        placeholderLabel.isHidden = true
+        
+        view.addSubview(placeholderLabel)
+        
+        placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            placeholderLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            placeholderLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+    
+    
 }
 
 
@@ -112,13 +131,34 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case 0 :
-            return upcomingEvents.count
-        case 1 :
-            return latestEvents.count
+        case 0:
+            if upcomingEvents.isEmpty {
+                placeholderLabel.isHidden = false
+                return 0
+            } else {
+                placeholderLabel.isHidden = true
+                return upcomingEvents.count
+            }
+        case 1:
+            if latestEvents.isEmpty {
+                placeholderLabel.isHidden = false
+                return 0
+            } else {
+                placeholderLabel.isHidden = true
+                return latestEvents.count
+            }
+        case 2:
+            if teams.isEmpty {
+                placeholderLabel.isHidden = false
+                return 0
+            } else {
+                placeholderLabel.isHidden = true
+                return teams.count
+            }
         default:
-            return teams.count
+            return 0
         }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -134,7 +174,7 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
                 cell.firstTeamLogo.sd_setImage(with: URL(string: cellData.eventHomeTeamLogo ?? ""), placeholderImage: UIImage(named: "img_launcher"))
                 cell.secondTeamNameLabel.text = cellData.eventAwayTeam ?? "Team name"
                 cell.secondTeamLogo.sd_setImage(with: URL(string: cellData.eventAwayTeamLogo ?? ""), placeholderImage: UIImage(named: "img_launcher"))
-
+                
             }
             cell.timeLabel.text = cellData.eventTime ?? ""
             cell.dateLabel.text = ""
@@ -171,10 +211,16 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard AppCommon.shared.isNetworkReachable() else {
+            AppCommon.shared.showSimpleAlert(title:"Network Error", message: "Oops! Something went wrong with the network. Please check your internet connection and try again.",view: self)
+            return
+        }
         if AppCommon.shared.sport == .football && indexPath.section == 2 {
             let destinationViewController = self.storyboard?.instantiateViewController(withIdentifier: "TeamDetailsTableViewController") as! TeamDetailsTableViewController
             destinationViewController.teamId = teams[indexPath.row].teamKey ?? 0
             self.navigationController?.pushViewController(destinationViewController, animated: true)
+        }else if indexPath.section == 2{
+            AppCommon.shared.showSimpleAlert(title:"Team Details Unavailable", message: "Sorry, team details for this sport are currently unavailable. We're working on bringing them to you soon. Please check back later.",view: self)
         }
     }
     
@@ -189,7 +235,7 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
         
         return headerView
     }
-   
+    
     
 }
 
@@ -241,8 +287,8 @@ extension LeagueDetailsViewController: LeagueDetailsView{
         let reformattedDate = dateFormatter.string(from: date)
         return reformattedDate
     }
-  
-
+    
+    
 }
 
 extension LeagueDetailsViewController: UICollectionViewDelegateFlowLayout {

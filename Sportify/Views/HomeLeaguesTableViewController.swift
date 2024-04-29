@@ -67,6 +67,8 @@ class HomeLeaguesTableViewController: UITableViewController ,HomeLeaguesView{
             destinationViewController.league = leaguesNetwork[indexPath.row]
             navigationController?.pushViewController(destinationViewController, animated: true)
         }
+        
+        
     }
     
     func updateData(leagues: Leagues) {

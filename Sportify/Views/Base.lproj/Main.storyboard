@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dhg-ZY-Sua">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dhg-ZY-Sua">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -15,20 +16,20 @@
             <objects>
                 <viewController id="woT-jC-gPp" customClass="FavoriteLeaguesViewController" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rXS-e0-fY2">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5gg-YA-m8L">
-                                <rect key="frame" x="0.0" y="56" width="393" height="713"/>
+                                <rect key="frame" x="0.0" y="56" width="393" height="747"/>
                                 <color key="backgroundColor" name="backgroundColor"/>
                                 <color key="separatorColor" name="backgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" name="backgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteSportLeague" id="fMb-of-t6R" customClass="LeagueTableViewCell" customModule="Sportify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="47.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fMb-of-t6R" id="2g3-rk-hbU">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="47.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -62,11 +63,11 @@
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" id="3RL-Du-1rS" customClass="HomeViewController" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uEf-MK-mcc">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PLj-Zu-Dio">
-                                <rect key="frame" x="27" y="128" width="339" height="641"/>
+                                <rect key="frame" x="27" y="128" width="339" height="675"/>
                                 <color key="backgroundColor" name="backgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tiX-lI-rUD">
                                     <size key="itemSize" width="128" height="128"/>
@@ -205,6 +206,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tX1-dS-dcy">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                        <color key="tintColor" name="Green"/>
+                        <color key="barTintColor" name="backgroundColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -226,6 +230,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="AYv-lR-9dU">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                        <color key="tintColor" name="Green"/>
+                        <color key="barTintColor" name="backgroundColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

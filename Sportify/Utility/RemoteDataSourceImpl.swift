@@ -12,7 +12,10 @@ class RemoteDataSourceImpl: RemoteDataSource {
 
     
     private static func performRequest<T: Decodable>(route: APIRouter, decoder: JSONDecoder = JSONDecoder(), completion: @escaping (Result<T, NetworkError>) -> Void) {
-        print(route)
+        guard AppCommon.shared.isNetworkReachable() else {
+            completion(.failure(.networkError(message: "Oops! Something went wrong with the network. Please check your internet connection and try again.")))
+            return
+        }
         AF.request(route).validate()
             .responseDecodable { (response: AFDataResponse<T>) in
                 switch response.result {

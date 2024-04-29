@@ -54,6 +54,10 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         return 0
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard AppCommon.shared.isNetworkReachable() else {
+            AppCommon.shared.showSimpleAlert(title:"Network Error", message: "Oops! Something went wrong with the network. Please check your internet connection and try again.",view: self)
+            return
+        }
         let homeLeaguesTableVC:HomeLeaguesTableViewController = HomeLeaguesTableViewController()
         let sportName:String = self.sports[indexPath.item].name
         var sportNameEnum: Sport?
