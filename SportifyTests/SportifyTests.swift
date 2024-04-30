@@ -51,5 +51,38 @@ final class SportifyTests: XCTestCase {
         
         waitForExpectations(timeout: 10)
     }
+    
+    func testGetTeams(){
+        let expectation = expectation(description: "Waiting for api")
+        
+        RemoteDataSourceImpl.getTeams(of: .football, for: "205"){
+            result in
+            switch result {
+            case .success(let success):
+                XCTAssertNotNil(success, "Response is nil")
+            case .failure(let failure):
+                XCTFail()
+            }
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10)
+    }
 
+    func testGetPlayers(){
+        let expectation = expectation(description: "Waiting for api")
+        
+        RemoteDataSourceImpl.getPlayers(of: .football, for: "96"){
+            result in
+            switch result {
+            case .success(let success):
+                XCTAssertNotNil(success, "Response is nil")
+            case .failure(let failure):
+                XCTFail()
+            }
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10)
+    }
 }
