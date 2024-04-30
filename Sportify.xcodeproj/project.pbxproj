@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		040D2BA72BE10E5300CB21FE /* SportifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D2BA62BE10E5300CB21FE /* SportifyTests.swift */; };
 		040D2BB92BE110F500CB21FE /* MockingRemoteDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D2BB82BE110F500CB21FE /* MockingRemoteDataSourceImpl.swift */; };
+		040D2BBD2BE13E7100CB21FE /* MockingNetworkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D2BBC2BE13E7100CB21FE /* MockingNetworkTest.swift */; };
 		046922162BDF56960049125A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 046922152BDF56960049125A /* Assets.xcassets */; };
 		04BE4CAB2BCED5AB001853A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE4CAA2BCED5AB001853A8 /* AppDelegate.swift */; };
 		04BE4CAD2BCED5AB001853A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE4CAC2BCED5AB001853A8 /* SceneDelegate.swift */; };
@@ -72,6 +73,7 @@
 		040D2BA42BE10E5200CB21FE /* SportifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		040D2BA62BE10E5300CB21FE /* SportifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportifyTests.swift; sourceTree = "<group>"; };
 		040D2BB82BE110F500CB21FE /* MockingRemoteDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockingRemoteDataSourceImpl.swift; sourceTree = "<group>"; };
+		040D2BBC2BE13E7100CB21FE /* MockingNetworkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockingNetworkTest.swift; sourceTree = "<group>"; };
 		046922152BDF56960049125A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04BE4CA72BCED5AB001853A8 /* Sportify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sportify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BE4CAA2BCED5AB001853A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				040D2BB82BE110F500CB21FE /* MockingRemoteDataSourceImpl.swift */,
+				040D2BBC2BE13E7100CB21FE /* MockingNetworkTest.swift */,
 			);
 			path = MockingTests;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				040D2BA72BE10E5300CB21FE /* SportifyTests.swift in Sources */,
+				040D2BBD2BE13E7100CB21FE /* MockingNetworkTest.swift in Sources */,
 				040D2BB92BE110F500CB21FE /* MockingRemoteDataSourceImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
