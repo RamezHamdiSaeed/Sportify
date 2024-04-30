@@ -24,7 +24,7 @@ class TeamDetailsPresenter{
             switch result {
             case .success(let success):
                 self?.view?.showTeamDetails(success.result ?? [])
-                print(result)
+//                print(result)
             case .failure(let failure):
                 print(failure.localizedDescription)
             }

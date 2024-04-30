@@ -67,7 +67,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PLj-Zu-Dio">
-                                <rect key="frame" x="27" y="128" width="339" height="675"/>
+                                <rect key="frame" x="16" y="56" width="361" height="731"/>
                                 <color key="backgroundColor" name="backgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tiX-lI-rUD">
                                     <size key="itemSize" width="128" height="128"/>
@@ -94,14 +94,11 @@
                         <viewLayoutGuide key="safeArea" id="Ihv-l2-PaG"/>
                         <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
-                            <constraint firstItem="PLj-Zu-Dio" firstAttribute="leading" secondItem="Ihv-l2-PaG" secondAttribute="leading" constant="27" id="5L1-ED-eZa"/>
-                            <constraint firstItem="Ihv-l2-PaG" firstAttribute="bottom" secondItem="PLj-Zu-Dio" secondAttribute="bottom" id="HMF-6b-Ay2"/>
-                            <constraint firstItem="PLj-Zu-Dio" firstAttribute="top" secondItem="Ihv-l2-PaG" secondAttribute="top" constant="72" id="Ts7-jx-0fl"/>
-                            <constraint firstItem="PLj-Zu-Dio" firstAttribute="top" secondItem="Ihv-l2-PaG" secondAttribute="top" constant="72" id="VKN-mU-bfi"/>
-                            <constraint firstItem="PLj-Zu-Dio" firstAttribute="leading" secondItem="Ihv-l2-PaG" secondAttribute="leading" constant="27" id="c5b-vT-tEL"/>
-                            <constraint firstItem="PLj-Zu-Dio" firstAttribute="centerX" secondItem="Ihv-l2-PaG" secondAttribute="centerX" id="d96-PQ-bVc"/>
-                            <constraint firstItem="Ihv-l2-PaG" firstAttribute="trailing" secondItem="PLj-Zu-Dio" secondAttribute="trailing" constant="27" id="jTj-dU-weS"/>
-                            <constraint firstItem="PLj-Zu-Dio" firstAttribute="centerY" secondItem="Ihv-l2-PaG" secondAttribute="centerY" constant="36" id="nec-1w-2Wu"/>
+                            <constraint firstItem="PLj-Zu-Dio" firstAttribute="top" secondItem="Ihv-l2-PaG" secondAttribute="top" id="45o-F3-hO6"/>
+                            <constraint firstItem="Ihv-l2-PaG" firstAttribute="trailing" secondItem="PLj-Zu-Dio" secondAttribute="trailing" constant="16" id="BPF-zp-Y96"/>
+                            <constraint firstItem="PLj-Zu-Dio" firstAttribute="leading" secondItem="Ihv-l2-PaG" secondAttribute="leading" constant="16" id="FBx-j4-V7v"/>
+                            <constraint firstItem="PLj-Zu-Dio" firstAttribute="centerX" secondItem="uEf-MK-mcc" secondAttribute="centerX" id="OAx-TV-UZI"/>
+                            <constraint firstItem="Ihv-l2-PaG" firstAttribute="bottom" secondItem="PLj-Zu-Dio" secondAttribute="bottom" constant="16" id="Xnb-vi-uxh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AYE-Ak-LqK"/>

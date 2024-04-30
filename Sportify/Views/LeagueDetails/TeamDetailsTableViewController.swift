@@ -37,11 +37,11 @@ class TeamDetailsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return team.count > 0 ? team.count : 1 // Return 1 if no items
+            return team.count > 0 ? team.count : 1
         case 1:
-            return teamCoach.count > 0 ? teamCoach.count : 1 // Return 1 if no items
+            return teamCoach.count > 0 ? teamCoach.count : 1
         default:
-            return teamPlayers.count > 0 ? teamPlayers.count : 1 // Return 1 if no items
+            return teamPlayers.count > 0 ? teamPlayers.count : 1 
         }
     }
     
@@ -64,7 +64,7 @@ class TeamDetailsTableViewController: UITableViewController {
             } else {
                 var coachName = teamCoach[indexPath.row].coachName
                 if coachName == "" {coachName = "Unknown Coach"}
-                cell.leagueImage.image = UIImage(systemName: "person.circle.fill")
+                cell.leagueImage.image = UIImage(systemName: "photo")
                 cell.leagueName.text = coachName
             }
         default:
@@ -72,7 +72,7 @@ class TeamDetailsTableViewController: UITableViewController {
                 cell.leagueName.text = "No player available"
                 cell.leagueImage.image = nil
             } else {
-                cell.leagueImage.sd_setImage(with: URL(string: teamPlayers[indexPath.row].playerImage ?? ""), placeholderImage: UIImage(systemName: "person.circle.fill"))
+                cell.leagueImage.sd_setImage(with: URL(string: teamPlayers[indexPath.row].playerImage ?? ""), placeholderImage: UIImage(systemName: "photo"))
                 cell.leagueName.text = teamPlayers[indexPath.row].playerName
             }
         }

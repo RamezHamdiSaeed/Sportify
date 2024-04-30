@@ -25,6 +25,7 @@
                                 <rect key="frame" x="5" y="16" width="155" height="124"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="124" id="fxE-VO-W5O"/>
+                                    <constraint firstAttribute="width" constant="155" id="zFe-Rb-cna"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team name " textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t58-nc-7YC">

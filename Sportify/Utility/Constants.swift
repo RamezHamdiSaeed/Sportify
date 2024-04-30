@@ -9,7 +9,7 @@ import Foundation
 struct Constants {
     struct API {
         static let baseURL = "https://apiv2.allsportsapi.com/"
-        static let key = "aea3595100a30d43a3bbfd7708bcb7a11cf0ee733f2dbef49bfb745713627689"
+        static let key = "706020e5383ecbcfe7ba71d76311b9cc579e701e2659d9700d1c574a3aae1b72"
         struct Endpoints{
             static let basketball = "basketball"
             static let football = "football"

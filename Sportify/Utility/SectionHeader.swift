@@ -1,35 +1,30 @@
-//
-//  SectionHeader.swift
-//  Sportify
-//
-//  Created by Hadir on 27/04/2024.
-//
-
+import Foundation
 import UIKit
 
 class SectionHeader: UICollectionReusableView {
-    static let reuseIdentifier = "CustomHeaderReuseIdentifier"
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Title"
+        
         return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(titleLabel)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
+        addSubview(titleLabel)
+        
+        
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.textColor = UIColor(named: "Green")
         NSLayoutConstraint.activate([
-            // Center titleLabel horizontally
-            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            // Center titleLabel vertically
-            titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+            
         ])
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("There was an error creating the header")
     }
 }

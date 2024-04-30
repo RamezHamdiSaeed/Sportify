@@ -29,6 +29,7 @@ struct Event: Codable {
     let leagueSeason: String?
     let eventLive: String?
     let eventHomeTeamLogo, eventAwayTeamLogo: String?
+    let homeTeamLogo, awayTeamLogo: String?
     let eventFirstPlayer: String?
     let firstPlayerKey: String?
     let eventSecondPlayer: String?
@@ -55,6 +56,8 @@ struct Event: Codable {
         case eventLive = "event_live"
         case eventHomeTeamLogo = "event_home_team_logo"
         case eventAwayTeamLogo = "event_away_team_logo"
+        case homeTeamLogo = "home_team_logo"
+        case awayTeamLogo = "away_team_logo"
         case eventFirstPlayer = "event_first_player"
         case firstPlayerKey = "first_player_key"
         case eventSecondPlayer = "event_second_player"

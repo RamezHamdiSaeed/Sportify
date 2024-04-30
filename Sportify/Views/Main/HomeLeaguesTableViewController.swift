@@ -62,10 +62,13 @@ class HomeLeaguesTableViewController: UITableViewController ,HomeLeaguesView{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let storyboard = UIStoryboard(name: "Details", bundle: nil)
-        
-        if let destinationViewController = storyboard.instantiateViewController(withIdentifier: "LeagueDetailsViewController") as? LeagueDetailsViewController {
-            destinationViewController.league = leaguesNetwork[indexPath.row]
-            navigationController?.pushViewController(destinationViewController, animated: true)
+        if AppCommon.shared.sport == .tennis{
+            AppCommon.shared.showSimpleAlert(title:"League Details Unavailable", message: "Sorry, league details for this sport are currently unavailable. We're working on bringing them to you soon. Please check back later.",view: self)
+        }else{
+            if let destinationViewController = storyboard.instantiateViewController(withIdentifier: "LeagueDetailsViewController") as? LeagueDetailsViewController {
+                destinationViewController.league = leaguesNetwork[indexPath.row]
+                navigationController?.pushViewController(destinationViewController, animated: true)
+            }
         }
         
         

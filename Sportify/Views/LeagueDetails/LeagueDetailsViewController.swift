@@ -27,6 +27,8 @@ class LeagueDetailsViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.title = (league.leagueName == "" || league.leagueName == nil ? league.countryName : league.leagueName)
         addActivityIndecator()
         presenter = LeagueDetailsPresenter()
         presenter.attachView(view: self)
@@ -61,7 +63,7 @@ class LeagueDetailsViewController: UIViewController{
         detailsCollectionView.register(nib, forCellWithReuseIdentifier: "detailsCell")
         nib = UINib(nibName: "TeamsCollectionViewCell", bundle: nil)
         detailsCollectionView.register(nib, forCellWithReuseIdentifier: "teamCell")
-        detailsCollectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseIdentifier)
+        detailsCollectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SectionHeader")
         
         configureCompositionalLayout()
     }
@@ -132,33 +134,14 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
-            if upcomingEvents.isEmpty {
-                placeholderLabel.isHidden = false
-                return 0
-            } else {
-                placeholderLabel.isHidden = true
-                return upcomingEvents.count
-            }
+            return upcomingEvents.count
         case 1:
-            if latestEvents.isEmpty {
-                placeholderLabel.isHidden = false
-                return 0
-            } else {
-                placeholderLabel.isHidden = true
-                return latestEvents.count
-            }
+            return latestEvents.count
         case 2:
-            if teams.isEmpty {
-                placeholderLabel.isHidden = false
-                return 0
-            } else {
-                placeholderLabel.isHidden = true
-                return teams.count
-            }
+            return teams.count
         default:
             return 0
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -167,15 +150,17 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
         case 0 :
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailsCell", for: indexPath) as? LeagueDetailsCollectionViewCell else {fatalError("Unable deque cell...")}
             let cellData = upcomingEvents[indexPath.row]
-            if AppCommon.shared.sport == .tennis{
-                
+            
+            if AppCommon.shared.sport == .football {
+                cell.firstTeamLogo.sd_setImage(with: URL(string: cellData.homeTeamLogo ?? ""), placeholderImage: UIImage(named: "img_launcher"))
+                cell.secondTeamLogo.sd_setImage(with: URL(string: cellData.awayTeamLogo ?? ""), placeholderImage: UIImage(named: "img_launcher"))
             }else{
-                cell.firstTeamNameLabel.text = cellData.eventHomeTeam ?? "Team name"
                 cell.firstTeamLogo.sd_setImage(with: URL(string: cellData.eventHomeTeamLogo ?? ""), placeholderImage: UIImage(named: "img_launcher"))
-                cell.secondTeamNameLabel.text = cellData.eventAwayTeam ?? "Team name"
                 cell.secondTeamLogo.sd_setImage(with: URL(string: cellData.eventAwayTeamLogo ?? ""), placeholderImage: UIImage(named: "img_launcher"))
-                
             }
+            cell.firstTeamNameLabel.text = cellData.eventHomeTeam ?? "Team name"
+            cell.secondTeamNameLabel.text = cellData.eventAwayTeam ?? "Team name"
+            
             cell.timeLabel.text = cellData.eventTime ?? ""
             cell.dateLabel.text = ""
             if let date = cellData.eventDate{
@@ -188,10 +173,15 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
         case 1 :
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailsCell", for: indexPath) as? LeagueDetailsCollectionViewCell else {fatalError("Unable deque cell...")}
             let cellData = latestEvents[indexPath.row]
+            if AppCommon.shared.sport == .football {
+                cell.firstTeamLogo.sd_setImage(with: URL(string: cellData.homeTeamLogo ?? ""), placeholderImage: UIImage(named: "img_launcher"))
+                cell.secondTeamLogo.sd_setImage(with: URL(string: cellData.awayTeamLogo ?? ""), placeholderImage: UIImage(named: "img_launcher"))
+            }else{
+                cell.firstTeamLogo.sd_setImage(with: URL(string: cellData.eventHomeTeamLogo ?? ""), placeholderImage: UIImage(named: "img_launcher"))
+                cell.secondTeamLogo.sd_setImage(with: URL(string: cellData.eventAwayTeamLogo ?? ""), placeholderImage: UIImage(named: "img_launcher"))
+            }
             cell.firstTeamNameLabel.text = cellData.eventHomeTeam ?? "Team name"
-            cell.firstTeamLogo.sd_setImage(with: URL(string: cellData.eventHomeTeamLogo ?? ""), placeholderImage: UIImage(named: "img_launcher"))
             cell.secondTeamNameLabel.text = cellData.eventAwayTeam ?? "Team name"
-            cell.secondTeamLogo.sd_setImage(with: URL(string: cellData.eventAwayTeamLogo ?? ""), placeholderImage: UIImage(named: "img_launcher"))
             cell.timeLabel.text = cellData.eventTime ?? ""
             if let date = cellData.eventDate{
                 cell.dateLabel.text = reformateDate(date)
@@ -225,13 +215,14 @@ extension LeagueDetailsViewController: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeader.reuseIdentifier, for: indexPath) as? SectionHeader else {
-            fatalError("Failed to dequeue SectionHeaderView")
+        guard kind == UICollectionView.elementKindSectionHeader else {
+            return UICollectionReusableView()
         }
-        
-        headerView.tintColor = UIColor(red: 26/255, green: 22/255, blue: 23/255, alpha: 1.0)
-        headerView.titleLabel.text = sectionTitles[indexPath.section]
-        headerView.titleLabel.textColor = UIColor(red: 0.3686, green: 0.9843, blue: 0.6314, alpha: 1.0)
+        let numberOfItemsInSection = collectionView.numberOfItems(inSection: indexPath.section)
+            
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as! SectionHeader
+        let titleLabelText = numberOfItemsInSection == 0 ? "No \(sectionTitles[indexPath.section])" : sectionTitles[indexPath.section]
+        headerView.titleLabel.text = titleLabelText
         
         return headerView
     }

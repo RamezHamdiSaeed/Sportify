@@ -14,7 +14,9 @@ class TeamsCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.teamLogo.layer.cornerRadius = 86
+        self.teamLogo.layer.masksToBounds = true
+
     }
 
 }

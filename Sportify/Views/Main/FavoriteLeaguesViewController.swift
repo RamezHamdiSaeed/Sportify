@@ -30,7 +30,7 @@ class FavoriteLeaguesViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func updateData(leagues: [League]) {
-        print(leagues.count)
+//        print(leagues.count)
         FavoriteLeaguesPresenter.leaguesDB = leagues
     }
     
