@@ -1,13 +1,3 @@
-//
-//  MockingRemoteDataSourceImpl.swift
-//  SportifyTests
-//
-//  Created by Hadir on 30/04/2024.
-//
-
-import Foundation
-
-//
 //  MockedNetworkService.swift
 //  MVVMUnitTests
 //
@@ -20,7 +10,6 @@ import Foundation
 class MockedRemoteDataSource : RemoteDataSource{
     
     static var isError : Bool = false
-
 
     static let fakeLeagues: [String: Any] = [
         "success": 1,
@@ -93,6 +82,102 @@ class MockedRemoteDataSource : RemoteDataSource{
         ]
     ]
     
+    static let fakeTeams: [String: Any] = [
+        "success": 1,
+        "result": [
+            [
+                "team_key": 4281,
+                "team_name": "Karela United",
+                "team_logo": "https://apiv2.allsportsapi.com/logo/4281_karela-united.jpg",
+                "players": [],
+                "coaches": [
+                    [
+                        "coach_name": "",
+                        "coach_country": nil,
+                        "coach_age": nil
+                    ]
+                ]
+            ],
+            [
+                "team_key": 4282,
+                "team_name": "Great Olympics",
+                "team_logo": "https://apiv2.allsportsapi.com/logo/4282_great-olympics.jpg",
+                "players": [
+                    [
+                        "player_key": 244895555,
+                        "player_image": nil,
+                        "player_name": "E. Afum",
+                        "player_number": "",
+                        "player_country": nil,
+                        "player_type": "Forwards",
+                        "player_age": "",
+                        "player_match_played": "0",
+                        "player_goals": "0",
+                        "player_yellow_cards": "0",
+                        "player_red_cards": "0",
+                        "player_injured": "No",
+                        "player_substitute_out": "0",
+                        "player_substitutes_on_bench": "0",
+                        "player_assists": "",
+                        "player_birthdate": "1992-12-16",
+                        "player_is_captain": "",
+                        "player_shots_total": "",
+                        "player_goals_conceded": "",
+                        "player_fouls_committed": "",
+                        "player_tackles": "",
+                        "player_blocks": "",
+                        "player_crosses_total": "",
+                        "player_interceptions": "",
+                        "player_clearances": "",
+                        "player_dispossesed": "",
+                        "player_saves": "",
+                        "player_inside_box_saves": "",
+                        "player_duels_total": "",
+                        "player_duels_won": "",
+                        "player_dribble_attempts": "",
+                        "player_dribble_succ": "",
+                        "player_pen_comm": "",
+                        "player_pen_won": "",
+                        "player_pen_scored": "",
+                        "player_pen_missed": "",
+                        "player_passes": "",
+                        "player_passes_accuracy": "",
+                        "player_key_passes": "",
+                        "player_woordworks": "",
+                        "player_rating": ""
+                    ]
+                ],
+                "coaches": [
+                    [
+                        "coach_name": "",
+                        "coach_country": nil,
+                        "coach_age": nil
+                    ]
+                ]
+            ]
+        ]
+    ]
+
+    
+    static let fakePlayers: [String: Any] = [
+        "success": 1,
+        "result": [
+            [
+                "team_key": 4281,
+                "team_name": "Karela United",
+                "team_logo": "https://apiv2.allsportsapi.com/logo/4281_karela-united.jpg",
+                "players": [],
+                "coaches": [
+                    [
+                        "coach_name": "",
+                        "coach_country": nil,
+                        "coach_age": nil
+                    ]
+                ]
+            ]
+        ]
+    ]
+    
     static func getLeagues(of sport: Sportify.Sport, completion: @escaping (Result<Sportify.Leagues, Sportify.NetworkError>) -> Void) {
                 if self.isError {
                     completion(.failure(.networkError(message: "Network Failure To Fetch Leagues Over The Network")))
@@ -129,11 +214,37 @@ class MockedRemoteDataSource : RemoteDataSource{
     }
     
     static func getTeams(of sport: Sportify.Sport, for leagueId: String, completion: @escaping (Result<Sportify.Teams, Sportify.NetworkError>) -> Void) {
-        
+        if self.isError {
+            completion(.failure(.networkError(message: "Network Failure To Fetch Teams Over The Network")))
+            return
+        }
+        do{
+            let data = try JSONSerialization.data(withJSONObject: fakeTeams)
+            let result : Sportify.Teams = try JSONDecoder().decode(Sportify.Teams.self, from: data)
+            completion(.success(Sportify.Teams(success: 1, result: result.result)))
+        }
+        catch{
+
+            completion(.failure(.networkError(message: "Error when dealing with the Fetched Data Over the Network")))
+
+        }
     }
     
     static func getPlayers(of sport: Sportify.Sport, for teamId: String, completion: @escaping (Result<Sportify.PlayerResponse, Sportify.NetworkError>) -> Void) {
-        
+        if self.isError {
+            completion(.failure(.networkError(message: "Network Failure To Fetch Teams Over The Network")))
+            return
+        }
+        do{
+            let data = try JSONSerialization.data(withJSONObject: fakePlayers)
+            let result : Sportify.PlayerResponse = try JSONDecoder().decode(Sportify.PlayerResponse.self, from: data)
+            completion(.success(Sportify.PlayerResponse(success: 1, result: result.result)))
+        }
+        catch{
+
+            completion(.failure(.networkError(message: "Error when dealing with the Fetched Data Over the Network")))
+
+        }
     }
 
 

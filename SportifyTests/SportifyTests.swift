@@ -26,7 +26,7 @@ final class SportifyTests: XCTestCase {
             switch result {
             case .success(let success):
                 XCTAssertNotNil(success, "Response is nil")
-            case .failure(let failure):
+            case .failure(_):
                 XCTFail()
             }
             expectation.fulfill()
@@ -43,7 +43,7 @@ final class SportifyTests: XCTestCase {
             switch result {
             case .success(let success):
                 XCTAssertNotNil(success, "Response is nil")
-            case .failure(let failure):
+            case .failure(_):
                 XCTFail()
             }
             expectation.fulfill()
@@ -60,7 +60,7 @@ final class SportifyTests: XCTestCase {
             switch result {
             case .success(let success):
                 XCTAssertNotNil(success, "Response is nil")
-            case .failure(let failure):
+            case .failure(_):
                 XCTFail()
             }
             expectation.fulfill()
@@ -77,7 +77,7 @@ final class SportifyTests: XCTestCase {
             switch result {
             case .success(let success):
                 XCTAssertNotNil(success, "Response is nil")
-            case .failure(let failure):
+            case .failure(_):
                 XCTFail()
             }
             expectation.fulfill()
@@ -85,4 +85,5 @@ final class SportifyTests: XCTestCase {
         
         waitForExpectations(timeout: 10)
     }
+    
 }

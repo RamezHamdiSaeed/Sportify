@@ -15,7 +15,7 @@ final class MockingNetworkTest: XCTestCase {
     override func tearDownWithError() throws {
 
     }
-    func testgetLeagues(){
+    func testGetLeagues(){
         MockedRemoteDataSource.getLeagues(of: .football){
             result in
             switch result {
@@ -28,7 +28,7 @@ final class MockingNetworkTest: XCTestCase {
         }
     }
     
-    func testgetEvents(){
+    func testGetEvents(){
         MockedRemoteDataSource.getEvents(of: .football, from: "2018-05-23", to: "2018-05-23", for: "812"){
             result in
             switch result {
@@ -40,41 +40,35 @@ final class MockingNetworkTest: XCTestCase {
             }
         }
     }
-//    var networkService : MockedNetworkService? = nil
-//
-//    override func setUpWithError() throws {
-//        networkService = MockedNetworkService(isError: false)
-//    }
-//
-//    override func tearDownWithError() throws {
-//        networkService = nil
-//    }
-//
-//    // when network available
-//    func testfetchPostsNetworkAvailable() throws {
-//        networkService!.fetchPosts(){
-//            response in
-//            print(response)
-//             XCTAssertNotNil(response)
-//
-//        }
-//
-//    }
-//
-//    // when network notAvailable
-//    func testfetchPostsNetworkNotAvailable() throws {
-//        networkService!.isError = true
-//        networkService!.fetchPosts(){
-//            response in
-//            print(response)
-//                XCTAssertNil(response)
-//
-//        }
-//
-//    }
-//
 
+    
+    func testGetTeams(){
+        MockedRemoteDataSource.getTeams(of: .football, for: "177"){result in
+            switch result {
+            case .success(let response):
+               XCTAssertNotNil(response)
+            case .failure(let failure):
+                print(failure.localizedDescription)
+                XCTFail()
+            }
+        }
+    }
 
+    
+    func testGetPlayers(){
+        MockedRemoteDataSource.getPlayers(of: .football, for: "4281"){
+            result in
+            switch result {
+            case .success(let response):
+               XCTAssertNotNil(response)
+            case .failure(let failure):
+                print(failure.localizedDescription)
+                XCTFail()
+            }
+        }
+    }
+
+    
   
 
 }
