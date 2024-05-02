@@ -26,6 +26,7 @@ protocol LeagueRepository{
     func insertLeagueToFav(league: League)
     func deleteLeagueToFav(league: League)
     func isFav(league: League) -> Bool
+    func setLeagueSportInFav(index:Int)
 }
 
 class LeagueRepositoryImpl: LeagueRepository{
@@ -65,6 +66,8 @@ class LeagueRepositoryImpl: LeagueRepository{
     func isFav(league: League) -> Bool{
         return LocalDataSourceImpl.shared.isFav(league: league)
     }
-    
+    func setLeagueSportInFav(index: Int) {
+        LocalDataSourceImpl.shared.getLeagueSport(index: index)
+    }
     
 }

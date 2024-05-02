@@ -78,6 +78,7 @@ class FavoriteLeaguesViewController: UIViewController, UITableViewDelegate, UITa
          
          if let destinationViewController = storyboard.instantiateViewController(withIdentifier: "LeagueDetailsViewController") as? LeagueDetailsViewController {
              destinationViewController.league = FavoriteLeaguesPresenter.leaguesDB[indexPath.row]
+             FavoriteLeaguesPresenter.updateSportCategory(index: indexPath.row)
              navigationController?.pushViewController(destinationViewController, animated: true)
          }
     }
