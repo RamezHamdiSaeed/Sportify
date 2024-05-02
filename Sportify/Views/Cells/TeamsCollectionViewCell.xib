@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="teamCell" id="M5Q-ek-3mI" customClass="TeamsCollectionViewCell" customModule="Sportify" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="165" height="201"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="165" height="201"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ros-fg-ztI">
+                        <rect key="frame" x="0.0" y="0.0" width="165" height="201"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jX3-Hg-r9P">
+                                <rect key="frame" x="5" y="16" width="155" height="124"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="124" id="fxE-VO-W5O"/>
+                                    <constraint firstAttribute="width" constant="155" id="zFe-Rb-cna"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team name " textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t58-nc-7YC">
+                                <rect key="frame" x="8" y="156" width="149" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="btn_cells_tabBar"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="jX3-Hg-r9P" secondAttribute="trailing" constant="5" id="6gq-VG-mEO"/>
+                            <constraint firstItem="jX3-Hg-r9P" firstAttribute="top" secondItem="ros-fg-ztI" secondAttribute="top" constant="16" id="7d4-dJ-Saw"/>
+                            <constraint firstItem="t58-nc-7YC" firstAttribute="top" secondItem="jX3-Hg-r9P" secondAttribute="bottom" constant="16" id="DBh-wg-Lv3"/>
+                            <constraint firstAttribute="trailing" secondItem="t58-nc-7YC" secondAttribute="trailing" constant="8" id="JWM-bN-Wo0"/>
+                            <constraint firstItem="t58-nc-7YC" firstAttribute="leading" secondItem="ros-fg-ztI" secondAttribute="leading" constant="8" id="T1t-zY-BBE"/>
+                            <constraint firstItem="jX3-Hg-r9P" firstAttribute="centerX" secondItem="ros-fg-ztI" secondAttribute="centerX" id="zck-Qv-45D"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="76E-rR-wch"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ros-fg-ztI" secondAttribute="trailing" id="2ye-55-w32"/>
+                <constraint firstAttribute="bottom" secondItem="ros-fg-ztI" secondAttribute="bottom" id="7PO-0M-urj"/>
+                <constraint firstItem="ros-fg-ztI" firstAttribute="top" secondItem="M5Q-ek-3mI" secondAttribute="top" id="TmG-g4-hqv"/>
+                <constraint firstItem="ros-fg-ztI" firstAttribute="leading" secondItem="M5Q-ek-3mI" secondAttribute="leading" id="vuH-V1-6RO"/>
+            </constraints>
+            <size key="customSize" width="165" height="201"/>
+            <connections>
+                <outlet property="nameLabel" destination="t58-nc-7YC" id="1KF-p9-E8R"/>
+                <outlet property="teamLogo" destination="jX3-Hg-r9P" id="DUK-XP-qnK"/>
+            </connections>
+            <point key="canvasLocation" x="130.53435114503816" y="72.183098591549296"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="btn_cells_tabBar">
+            <color red="0.16899999976158142" green="0.15700000524520874" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
