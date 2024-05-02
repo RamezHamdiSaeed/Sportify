@@ -13,6 +13,7 @@ protocol LocalDataSource{
     func insertLeagueToFav(league: League)
     func isFav(league: League)->Bool
     func deleteLeagueToFav(league: League)
+    func getLeagueSport(index:Int)
 
     
 }

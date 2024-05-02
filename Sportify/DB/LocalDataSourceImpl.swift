@@ -37,6 +37,11 @@ class LocalDataSourceImpl : LocalDataSource{
         newLeague.countryName = league.countryName
         newLeague.leagueLogo = league.leagueLogo
         newLeague.countryLogo = league.countryLogo
+        guard let sport = AppCommon.shared.sport else {
+            return
+        }
+        print("sport is \(String(describing: sport))")
+        newLeague.sport = String(describing: sport)
         
         do{
             try context?.save()
@@ -76,5 +81,23 @@ class LocalDataSourceImpl : LocalDataSource{
         return preparedLeagues
     }
     
+    func getLeagueSport(index: Int) {
+        let leagueSport = self.leagues[index].sport
+        print("sport is : \(String(describing: leagueSport))")
+        guard let sportName = leagueSport else {
+            return
+        }
+        switch sportName {
+        case "tennis":
+            AppCommon.shared.sport = Sport.tennis
+        case "basketball":
+            AppCommon.shared.sport = Sport.basketball
+        case "cricket":
+            AppCommon.shared.sport = Sport.cricket
+        default:
+            AppCommon.shared.sport = Sport.football
+
+        }
+    }
     
 }
