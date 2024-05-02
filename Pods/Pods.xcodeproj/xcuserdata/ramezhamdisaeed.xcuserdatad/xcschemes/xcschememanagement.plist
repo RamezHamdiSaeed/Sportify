@@ -35,12 +35,12 @@
 		<key>ReachabilitySwift-ReachabilitySwift.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>9</integer>
+			<integer>12</integer>
 		</dict>
 		<key>ReachabilitySwift.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>11</integer>
+			<integer>9</integer>
 		</dict>
 		<key>SDWebImage-SDWebImage.xcscheme</key>
 		<dict>
@@ -59,7 +59,7 @@
 		<key>SwiftMessages-SwiftMessages.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>11</integer>
 		</dict>
 		<key>SwiftMessages.xcscheme_^#shared#^_</key>
 		<dict>

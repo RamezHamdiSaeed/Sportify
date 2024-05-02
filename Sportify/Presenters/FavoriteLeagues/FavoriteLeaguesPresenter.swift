@@ -28,4 +28,7 @@ class FavoriteLeaguesPresenter{
         getLeaguesFromFav()
     }
 
+    static func updateSportCategory(index:Int){
+        LeagueRepositoryImpl.shared.setLeagueSportInFav(index:index)
+    }
 }

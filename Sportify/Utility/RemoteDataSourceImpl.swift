@@ -16,7 +16,7 @@ class RemoteDataSourceImpl: RemoteDataSource {
             completion(.failure(.networkError(message: "Oops! Something went wrong with the network. Please check your internet connection and try again.")))
             return
         }
-//        print(route)
+        print(route.urlRequest!.url!)
         AF.request(route).validate()
             .responseDecodable { (response: AFDataResponse<T>) in
                 switch response.result {
